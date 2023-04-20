@@ -24,22 +24,22 @@ namespace LangSkillz.Account
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// Instructor_Button control.
+        /// rad_Instructor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Instructor_Button;
+        protected global::System.Web.UI.WebControls.RadioButton rad_Instructor;
 
         /// <summary>
-        /// Student_Button control.
+        /// rad_Student control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Student_Button;
+        protected global::System.Web.UI.WebControls.RadioButton rad_Student;
 
         /// <summary>
         /// Email control.

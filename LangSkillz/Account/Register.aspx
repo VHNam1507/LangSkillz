@@ -13,8 +13,8 @@
         <div class="row">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 col-form-label">Select your role</asp:Label>
             <div class="col-md-10">
-                <asp:RadioButton ID="Instructor_Button" runat="server" Text="I'm a Instructor" GroupName = "group"/>
-                <asp:RadioButton ID="Student_Button" runat="server" Text="I'm a Student" GroupName = "group"/>
+                <asp:RadioButton ID="rad_Instructor" runat="server" Text="I'm a Instructor" GroupName = "group"/>
+                <asp:RadioButton ID="rad_Student" runat="server" Text="I'm a Student" GroupName = "group"/>
             </div>
         </div>
 
@@ -27,10 +27,10 @@
             </div>
         </div>
         <div class="row">
-            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 col-form-label">Your Full Name</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="FullName" CssClass="col-md-2 col-form-label">Your Full Name</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="FullName" CssClass="form-control" TextMode="Email" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                <asp:TextBox runat="server" ID="FullName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="FullName"
                     CssClass="text-danger" ErrorMessage="The full-name field is required." />
             </div>
         </div>
