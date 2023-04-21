@@ -11,21 +11,13 @@
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
         <div class="row">
-            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 col-form-label">Select your role</asp:Label>
+            <asp:Label runat="server" CssClass="col-md-2 col-form-label">Select your role</asp:Label>
             <div class="col-md-10">
-                <asp:RadioButton ID="rad_Instructor" runat="server" Text="I'm a Instructor" GroupName = "group"/>
+                <asp:RadioButton ID="rad_Instructor" runat="server" Text="I'm a Instructor" GroupName = "group"/> <br />
                 <asp:RadioButton ID="rad_Student" runat="server" Text="I'm a Student" GroupName = "group"/>
             </div>
         </div>
-
-        <div class="row">
-            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 col-form-label">Email</asp:Label>
-            <div class="col-md-10">
-                <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" CssClass="text-danger" ErrorMessage="The email field is required." />
-                <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" ErrorMessage="Invalid email address." ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" CssClass="text-danger" />
-            </div>
-        </div>
+        <br />
 
         <div class="row">
             <asp:Label runat="server" AssociatedControlID="FullName" CssClass="col-md-2 col-form-label">Your Full Name</asp:Label>
@@ -37,13 +29,31 @@
         </div>
 
         <div class="row">
+            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 col-form-label">Email</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="Email" CssClass="form-control"  />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                    CssClass="text-danger" ErrorMessage="The email field is required." />
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" 
+                    CssClass="text-danger" ErrorMessage="Invalid email address." 
+                    ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
+            </div>
+        </div>
+
+
+        <div class="row">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 col-form-label">Password</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
                     CssClass="text-danger" ErrorMessage="The password field is required." />
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="Password" 
+                    CssClass="text-danger" ErrorMessage="Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character." 
+                    ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\da-zA-Z]).{8,}$" />
             </div>
         </div>
+
+
         <div class="row">
             <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 col-form-label">Confirm password</asp:Label>
             <div class="col-md-10">
@@ -54,6 +64,7 @@
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
             </div>
         </div>
+        <br />
         <div class="row">
             <div class="offset-md-2 col-md-10">
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-outline-dark" />

@@ -36,7 +36,7 @@ namespace LangSkillz.Account
 
             if (rad_Instructor.Checked == true)
             {
-                Membership.CreateUser(Email.Text, Password.Text);
+                Membership.CreateUser(Email.Text, Password.Text, Email.Text);
                 Roles.AddUserToRole(Email.Text, "Instructors");
                 Response.Redirect("~/Default.aspx");
             }
