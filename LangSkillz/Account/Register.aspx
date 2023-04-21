@@ -9,7 +9,11 @@
         <h4>Create a new LangSkillz account</h4>
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
-
+        <asp:PlaceHolder runat="server" ID="PlaceHolder1" Visible="false">
+            <p class="text-danger">
+                <asp:Literal runat="server" ID="FailureText" />
+            </p>
+        </asp:PlaceHolder>
         <div class="row">
             <asp:Label runat="server" CssClass="col-md-2 col-form-label">Select your role</asp:Label>
             <div class="col-md-10">

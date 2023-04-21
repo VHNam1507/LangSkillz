@@ -8,6 +8,8 @@ using Owin;
 using LangSkillz.Models;
 using System.Web.Security;
 using Azure;
+using LangSkillz;
+using LangSkillz.App_Start.LangSkillz_DataSetTableAdapters;
 
 namespace LangSkillz.Account
 {
@@ -36,18 +38,26 @@ namespace LangSkillz.Account
 
             if (rad_Instructor.Checked == true)
             {
+                tbl_InstructorsTableAdapter instructor = new tbl_InstructorsTableAdapter();
                 Membership.CreateUser(Email.Text, Password.Text, Email.Text);
                 Roles.AddUserToRole(Email.Text, "Instructors");
+                instructor.Insert(FullName.Text, Email.Text);
                 Response.Redirect("~/Default.aspx");
             }
             else if (rad_Student.Checked == true)
             {
+                tbl_StudentsTableAdapter student = new tbl_StudentsTableAdapter();
                 Membership.CreateUser(Email.Text, Password.Text);
                 Roles.AddUserToRole(Email.Text, "Students");
+                student.Insert(FullName.Text, Email.Text);
                 Response.Redirect("~/Default.aspx");
             }
-
-
+            else
+            {
+                // Hiển thị thông báo lỗi nếu người dùng nhập sai thông tin
+                FailureText.Text = "Please choose your ROLE (INSTRUCTOR or Student).";
+                ErrorMessage.Visible = true;
+            }
         }
     }
 }

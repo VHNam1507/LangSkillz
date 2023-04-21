@@ -8,12 +8,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h3>Courses</h3>
     <hr />
+    <asp:Label ID="lbl_ERROR" runat="server" Font-Bold="true" ForeColor-="Maroon"></asp:Label>
     <asp:MultiView ID="Multiview1" runat="server" ActiveViewIndex="0">
         <asp:View ID="View1" runat="server">
             <h5>List of Courses</h5>
             <br />
             <div style="float:right">
-                <asp:Button ID="add_Course_button" CssClass="btn btn-info" runat="server" Text="Add new Course" />
+                <asp:Button ID="btn_AddCourse" OnClick="btn_AddCourse_Click" 
+                    CssClass="btn btn-info" runat="server" Text="Add new Course" />
             </div>
             <br /><br />
             <dx:ASPxGridView ID="ASPxGridView1" Width="100%" runat="server"></dx:ASPxGridView>
@@ -35,13 +37,13 @@
                     Course's content
                 </div>
                 <div class="col-md-10">
-                    <dx:ASPxHtmlEditor runat="server"></dx:ASPxHtmlEditor>
+                    <dx:ASPxHtmlEditor ID="htmlContent" runat="server"></dx:ASPxHtmlEditor>
                 </div>
 
                 <div class="col-md-2" style="padding:5px"></div>
                 <div class="col-md-10">
                     <br />
-                    <asp:Button ID="addCourse_save_btn" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
+                    <asp:Button ID="btn_SaveCourse" OnClick="btn_SaveCourse_Click" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
                 </div>
             </div>
         </asp:View>
@@ -51,7 +53,7 @@
             <br />
             <dx:ASPxGridView ID="ASPxGridView2" Width="100%" runat="server"></dx:ASPxGridView>
             <br />
-            <asp:Button ID="Button1" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
+            <asp:Button ID="btn_SaveQuiz" OnClick="btn_SaveQuiz_Click" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
         </asp:View>
 
         <asp:View ID="View4" runat="server">
@@ -59,7 +61,7 @@
             <br />
             <dx:ASPxGridView ID="ASPxGridView3" Width="100%" runat="server"></dx:ASPxGridView>
             <br />
-            <asp:Button ID="Button2" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
+            <asp:Button ID="btn_SaveAns" OnClick="btn_SaveAns_Click" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
         </asp:View>
 
 

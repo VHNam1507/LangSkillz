@@ -15,6 +15,15 @@ namespace LangSkillz.Instructors
     {
 
         /// <summary>
+        /// lbl_ERROR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ERROR;
+
+        /// <summary>
         /// Multiview1 control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace LangSkillz.Instructors
         protected global::System.Web.UI.WebControls.View View1;
 
         /// <summary>
-        /// add_Course_button control.
+        /// btn_AddCourse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button add_Course_button;
+        protected global::System.Web.UI.WebControls.Button btn_AddCourse;
 
         /// <summary>
         /// ASPxGridView1 control.
@@ -69,13 +78,22 @@ namespace LangSkillz.Instructors
         protected global::System.Web.UI.WebControls.TextBox CourseTitle_Textbox;
 
         /// <summary>
-        /// addCourse_save_btn control.
+        /// htmlContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addCourse_save_btn;
+        protected global::DevExpress.Web.ASPxHtmlEditor.ASPxHtmlEditor htmlContent;
+
+        /// <summary>
+        /// btn_SaveCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_SaveCourse;
 
         /// <summary>
         /// View3 control.
@@ -96,13 +114,13 @@ namespace LangSkillz.Instructors
         protected global::DevExpress.Web.ASPxGridView ASPxGridView2;
 
         /// <summary>
-        /// Button1 control.
+        /// btn_SaveQuiz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btn_SaveQuiz;
 
         /// <summary>
         /// View4 control.
@@ -123,12 +141,12 @@ namespace LangSkillz.Instructors
         protected global::DevExpress.Web.ASPxGridView ASPxGridView3;
 
         /// <summary>
-        /// Button2 control.
+        /// btn_SaveAns control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btn_SaveAns;
     }
 }
