@@ -22,10 +22,11 @@
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 col-form-label">Email</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                    CssClass="text-danger" ErrorMessage="The email field is required." />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" CssClass="text-danger" ErrorMessage="The email field is required." />
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" ErrorMessage="Invalid email address." ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" CssClass="text-danger" />
             </div>
         </div>
+
         <div class="row">
             <asp:Label runat="server" AssociatedControlID="FullName" CssClass="col-md-2 col-form-label">Your Full Name</asp:Label>
             <div class="col-md-10">

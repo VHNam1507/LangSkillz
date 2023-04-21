@@ -38,13 +38,13 @@ namespace LangSkillz.Account
             {
                 Membership.CreateUser(Email.Text, Password.Text);
                 Roles.AddUserToRole(Email.Text, "Instructors");
-                Response.Redirect("~/Defautl.aspx");
+                Response.Redirect("~/Default.aspx");
             }
             else if (rad_Student.Checked == true)
             {
                 Membership.CreateUser(Email.Text, Password.Text);
                 Roles.AddUserToRole(Email.Text, "Students");
-                Response.Redirect("~/Defautl.aspx");
+                Response.Redirect("~/Default.aspx");
             }
 
 

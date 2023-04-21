@@ -318,7 +318,7 @@ namespace LangSkillz.App_Start {
             
             private global::System.Data.DataColumn columninstructor_name;
             
-            private global::System.Data.DataColumn columninstructor_username;
+            private global::System.Data.DataColumn columninstructor_email;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -371,9 +371,9 @@ namespace LangSkillz.App_Start {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn instructor_usernameColumn {
+            public global::System.Data.DataColumn instructor_emailColumn {
                 get {
-                    return this.columninstructor_username;
+                    return this.columninstructor_email;
                 }
             }
             
@@ -414,12 +414,12 @@ namespace LangSkillz.App_Start {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_InstructorsRow Addtbl_InstructorsRow(string instructor_name, string instructor_username) {
+            public tbl_InstructorsRow Addtbl_InstructorsRow(string instructor_name, string instructor_email) {
                 tbl_InstructorsRow rowtbl_InstructorsRow = ((tbl_InstructorsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         instructor_name,
-                        instructor_username};
+                        instructor_email};
                 rowtbl_InstructorsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_InstructorsRow);
                 return rowtbl_InstructorsRow;
@@ -451,7 +451,7 @@ namespace LangSkillz.App_Start {
             internal void InitVars() {
                 this.columninstructor_ID = base.Columns["instructor_ID"];
                 this.columninstructor_name = base.Columns["instructor_name"];
-                this.columninstructor_username = base.Columns["instructor_username"];
+                this.columninstructor_email = base.Columns["instructor_email"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -461,8 +461,8 @@ namespace LangSkillz.App_Start {
                 base.Columns.Add(this.columninstructor_ID);
                 this.columninstructor_name = new global::System.Data.DataColumn("instructor_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninstructor_name);
-                this.columninstructor_username = new global::System.Data.DataColumn("instructor_username", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninstructor_username);
+                this.columninstructor_email = new global::System.Data.DataColumn("instructor_email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninstructor_email);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columninstructor_ID}, true));
                 this.columninstructor_ID.AutoIncrement = true;
@@ -472,7 +472,7 @@ namespace LangSkillz.App_Start {
                 this.columninstructor_ID.ReadOnly = true;
                 this.columninstructor_ID.Unique = true;
                 this.columninstructor_name.MaxLength = 50;
-                this.columninstructor_username.MaxLength = 50;
+                this.columninstructor_email.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -610,7 +610,7 @@ namespace LangSkillz.App_Start {
             
             private global::System.Data.DataColumn columnstudent_name;
             
-            private global::System.Data.DataColumn columnstudent_username;
+            private global::System.Data.DataColumn columnstudent_email;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -663,9 +663,9 @@ namespace LangSkillz.App_Start {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn student_usernameColumn {
+            public global::System.Data.DataColumn student_emailColumn {
                 get {
-                    return this.columnstudent_username;
+                    return this.columnstudent_email;
                 }
             }
             
@@ -706,12 +706,12 @@ namespace LangSkillz.App_Start {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_StudentsRow Addtbl_StudentsRow(string student_name, string student_username) {
+            public tbl_StudentsRow Addtbl_StudentsRow(string student_name, string student_email) {
                 tbl_StudentsRow rowtbl_StudentsRow = ((tbl_StudentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         student_name,
-                        student_username};
+                        student_email};
                 rowtbl_StudentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_StudentsRow);
                 return rowtbl_StudentsRow;
@@ -743,7 +743,7 @@ namespace LangSkillz.App_Start {
             internal void InitVars() {
                 this.columnstudent_ID = base.Columns["student_ID"];
                 this.columnstudent_name = base.Columns["student_name"];
-                this.columnstudent_username = base.Columns["student_username"];
+                this.columnstudent_email = base.Columns["student_email"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -753,8 +753,8 @@ namespace LangSkillz.App_Start {
                 base.Columns.Add(this.columnstudent_ID);
                 this.columnstudent_name = new global::System.Data.DataColumn("student_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstudent_name);
-                this.columnstudent_username = new global::System.Data.DataColumn("student_username", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstudent_username);
+                this.columnstudent_email = new global::System.Data.DataColumn("student_email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudent_email);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnstudent_ID}, true));
                 this.columnstudent_ID.AutoIncrement = true;
@@ -764,7 +764,7 @@ namespace LangSkillz.App_Start {
                 this.columnstudent_ID.ReadOnly = true;
                 this.columnstudent_ID.Unique = true;
                 this.columnstudent_name.MaxLength = 50;
-                this.columnstudent_username.MaxLength = 50;
+                this.columnstudent_email.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -934,17 +934,17 @@ namespace LangSkillz.App_Start {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string instructor_username {
+            public string instructor_email {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_Instructors.instructor_usernameColumn]));
+                        return ((string)(this[this.tabletbl_Instructors.instructor_emailColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'instructor_username\' in table \'tbl_Instructors\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'instructor_email\' in table \'tbl_Instructors\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_Instructors.instructor_usernameColumn] = value;
+                    this[this.tabletbl_Instructors.instructor_emailColumn] = value;
                 }
             }
             
@@ -962,14 +962,14 @@ namespace LangSkillz.App_Start {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isinstructor_usernameNull() {
-                return this.IsNull(this.tabletbl_Instructors.instructor_usernameColumn);
+            public bool Isinstructor_emailNull() {
+                return this.IsNull(this.tabletbl_Instructors.instructor_emailColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setinstructor_usernameNull() {
-                this[this.tabletbl_Instructors.instructor_usernameColumn] = global::System.Convert.DBNull;
+            public void Setinstructor_emailNull() {
+                this[this.tabletbl_Instructors.instructor_emailColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1016,17 +1016,17 @@ namespace LangSkillz.App_Start {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string student_username {
+            public string student_email {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_Students.student_usernameColumn]));
+                        return ((string)(this[this.tabletbl_Students.student_emailColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'student_username\' in table \'tbl_Students\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'student_email\' in table \'tbl_Students\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_Students.student_usernameColumn] = value;
+                    this[this.tabletbl_Students.student_emailColumn] = value;
                 }
             }
             
@@ -1044,14 +1044,14 @@ namespace LangSkillz.App_Start {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isstudent_usernameNull() {
-                return this.IsNull(this.tabletbl_Students.student_usernameColumn);
+            public bool Isstudent_emailNull() {
+                return this.IsNull(this.tabletbl_Students.student_emailColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setstudent_usernameNull() {
-                this[this.tabletbl_Students.student_usernameColumn] = global::System.Convert.DBNull;
+            public void Setstudent_emailNull() {
+                this[this.tabletbl_Students.student_emailColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1250,7 +1250,7 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             tableMapping.DataSetTable = "tbl_Instructors";
             tableMapping.ColumnMappings.Add("instructor_ID", "instructor_ID");
             tableMapping.ColumnMappings.Add("instructor_name", "instructor_name");
-            tableMapping.ColumnMappings.Add("instructor_username", "instructor_username");
+            tableMapping.ColumnMappings.Add("instructor_email", "instructor_email");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -1260,19 +1260,18 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_instructor_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "instructor_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_Instructors] ([instructor_name], [instructor_username]) VALUES (" +
-                "@instructor_name, @instructor_username)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_Instructors] ([instructor_name], [instructor_email]) VALUES (@in" +
+                "structor_name, @instructor_email)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@instructor_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "instructor_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@instructor_username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "instructor_username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@instructor_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "instructor_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [tbl_Instructors] SET [instructor_name] = @instructor_name, [instructor_us" +
-                "ername] = @instructor_username WHERE (([instructor_ID] = @Original_instructor_ID" +
-                "))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [tbl_Instructors] SET [instructor_name] = @instructor_name, [instructor_em" +
+                "ail] = @instructor_email WHERE (([instructor_ID] = @Original_instructor_ID))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@instructor_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "instructor_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@instructor_username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "instructor_username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@instructor_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "instructor_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_instructor_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "instructor_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -1289,8 +1288,8 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT instructor_ID, instructor_name, instructor_username\r\nFROM     tbl_Instruct" +
-                "ors";
+            this._commandCollection[0].CommandText = "SELECT instructor_ID, instructor_name, instructor_email\r\nFROM     tbl_Instructors" +
+                "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1360,18 +1359,18 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string instructor_name, string instructor_username) {
+        public virtual int Insert(string instructor_name, string instructor_email) {
             if ((instructor_name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(instructor_name));
             }
-            if ((instructor_username == null)) {
+            if ((instructor_email == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(instructor_username));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(instructor_email));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1393,18 +1392,18 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string instructor_name, string instructor_username, int Original_instructor_ID) {
+        public virtual int Update(string instructor_name, string instructor_email, int Original_instructor_ID) {
             if ((instructor_name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(instructor_name));
             }
-            if ((instructor_username == null)) {
+            if ((instructor_email == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(instructor_username));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(instructor_email));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_instructor_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -1547,7 +1546,7 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             tableMapping.DataSetTable = "tbl_Students";
             tableMapping.ColumnMappings.Add("student_ID", "student_ID");
             tableMapping.ColumnMappings.Add("student_name", "student_name");
-            tableMapping.ColumnMappings.Add("student_username", "student_username");
+            tableMapping.ColumnMappings.Add("student_email", "student_email");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -1556,18 +1555,18 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_student_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "student_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_Students] ([student_name], [student_username]) VALUES (@student_" +
-                "name, @student_username)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_Students] ([student_name], [student_email]) VALUES (@student_nam" +
+                "e, @student_email)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@student_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "student_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@student_username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "student_username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@student_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "student_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [tbl_Students] SET [student_name] = @student_name, [student_username] = @s" +
-                "tudent_username WHERE (([student_ID] = @Original_student_ID))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [tbl_Students] SET [student_name] = @student_name, [student_email] = @stud" +
+                "ent_email WHERE (([student_ID] = @Original_student_ID))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@student_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "student_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@student_username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "student_username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@student_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "student_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_student_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "student_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -1584,7 +1583,7 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT student_ID, student_name, student_username\r\nFROM     tbl_Students";
+            this._commandCollection[0].CommandText = "SELECT student_ID, student_name, student_email\r\nFROM     tbl_Students";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1654,18 +1653,18 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string student_name, string student_username) {
+        public virtual int Insert(string student_name, string student_email) {
             if ((student_name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(student_name));
             }
-            if ((student_username == null)) {
+            if ((student_email == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(student_username));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(student_email));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1687,18 +1686,18 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string student_name, string student_username, int Original_student_ID) {
+        public virtual int Update(string student_name, string student_email, int Original_student_ID) {
             if ((student_name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(student_name));
             }
-            if ((student_username == null)) {
+            if ((student_email == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(student_username));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(student_email));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_student_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
