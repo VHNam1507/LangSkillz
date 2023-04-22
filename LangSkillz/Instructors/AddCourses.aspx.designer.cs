@@ -105,6 +105,15 @@ namespace LangSkillz.Instructors
         protected global::System.Web.UI.WebControls.View View3;
 
         /// <summary>
+        /// lbl_questionA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_questionA;
+
+        /// <summary>
         /// ASPxGridView2 control.
         /// </summary>
         /// <remarks>
@@ -132,6 +141,15 @@ namespace LangSkillz.Instructors
         protected global::System.Web.UI.WebControls.View View4;
 
         /// <summary>
+        /// lbl_questionB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_questionB;
+
+        /// <summary>
         /// ASPxGridView3 control.
         /// </summary>
         /// <remarks>
@@ -148,5 +166,14 @@ namespace LangSkillz.Instructors
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_SaveAns;
+
+        /// <summary>
+        /// ObjectDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
     }
 }
