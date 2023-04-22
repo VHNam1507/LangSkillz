@@ -27,11 +27,7 @@
                             <asp:Button ID="Button1" CommandName="question" CommandArgument='<%#Eval("course_ID") %>' runat="server" Text="Add Quiz question"/>
                         </DataItemTemplate>
                     </dx:GridViewDataColumn>
-                    <dx:GridViewDataColumn>
-                        <DataItemTemplate>
-                            <asp:Button ID="Button1" CommandName="answer" CommandArgument='<%#Eval("course_ID") %>' runat="server" Text="Add Quiz answer"/>
-                        </DataItemTemplate>
-                    </dx:GridViewDataColumn>
+
                 </Columns>
             </dx:ASPxGridView>
         </asp:View>
@@ -84,21 +80,44 @@
                     <dx:GridViewDataTextColumn FieldName="question" VisibleIndex="2">
                     </dx:GridViewDataTextColumn>
                 </Columns>
+
+                <Templates>
+                    <DetailRow>
+                        <div style="padding: 3px 3px 2px 3px">
+                            <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" EnableCallBacks="true">
+                                <TabPages>
+                                    <dx:TabPage Text="Answers" Visible="true">
+                                        <ContentCollection>
+                                            <dx:ContentControl runat="server">
+                                                <dx:ASPxGridView ID="AnswersGrid" runat="server" DataSourceID="ObjectDataSource3"
+                                                KeyFieldName="answer_ID" Width="100%" OnBeforePerformDataSelect="AnswersGrid_BeforePerformDataSelect">
+                                                    <Columns>
+                                                        <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true"></dx:GridViewCommandColumn>
+                                                        <dx:GridViewDataColumn FieldName="correct_ans" />
+                                                        <dx:GridViewDataColumn FieldName="opt_a" />
+                                                        <dx:GridViewDataColumn FieldName="opt_b" />
+                                                        <dx:GridViewDataColumn FieldName="opt_c" />
+                                                        <dx:GridViewDataColumn FieldName="opt_d" />
+                                                    </Columns>
+
+                                                </dx:ASPxGridView>
+                                            </dx:ContentControl>
+                                        </ContentCollection>
+                                    </dx:TabPage>
+                                </TabPages>
+                            </dx:ASPxPageControl>
+                        </div>
+                    </DetailRow>
+                </Templates>
+                <SettingsDetail ShowDetailRow="true" AllowOnlyOneMasterRowExpanded="true" />
+                <Settings ShowFooter="true" />
+                <SettingsPager EnableAdaptivity="true" />
+                <Styles Header-Wrap="True"/>
+
             </dx:ASPxGridView>
             <br />
-            <asp:Button ID="btn_SaveQuiz" OnClick="btn_SaveQuiz_Click" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
         </asp:View>
 
-        <asp:View ID="View4" runat="server">
-            <h5>Add Quiz Answers to "
-                <asp:Label ID="lbl_questionB" runat="server" Text="..."></asp:Label>
-                ".
-            </h5>
-            <br />
-            <dx:ASPxGridView ID="ASPxGridView3" Width="100%" runat="server"></dx:ASPxGridView>
-            <br />
-            <asp:Button ID="btn_SaveAns" OnClick="btn_SaveAns_Click" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
-        </asp:View>
     </asp:MultiView>
 
     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="Get_by_CoursesID" TypeName="LangSkillz.App_Start.LangSkillz_DataSetTableAdapters.tbl_QuestionsTableAdapter" UpdateMethod="Update">
@@ -119,4 +138,29 @@
         </UpdateParameters>
     </asp:ObjectDataSource>
 
+    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="Get_By_questionID" TypeName="LangSkillz.App_Start.LangSkillz_DataSetTableAdapters.tbl_AnswersTableAdapter" UpdateMethod="Update">
+        <DeleteParameters>
+            <asp:Parameter Name="Original_answer_ID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="question_ID" Type="Int32" />
+            <asp:Parameter Name="correct_ans" Type="String" />
+            <asp:Parameter Name="opt_a" Type="String" />
+            <asp:Parameter Name="opt_b" Type="String" />
+            <asp:Parameter Name="opt_c" Type="String" />
+            <asp:Parameter Name="opt_d" Type="String" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:SessionParameter Name="question_id" SessionField="question_ID" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="question_ID" Type="Int32" />
+            <asp:Parameter Name="correct_ans" Type="String" />
+            <asp:Parameter Name="opt_a" Type="String" />
+            <asp:Parameter Name="opt_b" Type="String" />
+            <asp:Parameter Name="opt_c" Type="String" />
+            <asp:Parameter Name="opt_d" Type="String" />
+            <asp:Parameter Name="Original_answer_ID" Type="Int32" />
+        </UpdateParameters>
+    </asp:ObjectDataSource>
 </asp:Content>

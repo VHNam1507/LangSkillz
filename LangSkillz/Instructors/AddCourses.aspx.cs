@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DevExpress.Web;
 using DevExpress.XtraRichEdit.Fields;
 using LangSkillz;
 using LangSkillz.App_Start.LangSkillz_DataSetTableAdapters;
@@ -70,19 +71,14 @@ namespace LangSkillz.Instructors
             if (e.CommandArgs.CommandName == "question")
             {
                 Session["course_ID"] = e.CommandArgs.CommandArgument;
-
                 lbl_questionA.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "course_title").ToString();
-
                 Multiview1.SetActiveView(View3);
             }
-            else if (e.CommandArgs.CommandName == "answer")
-            {
-                Session["course_ID"] = e.CommandArgs.CommandArgument;
+        }
 
-                lbl_questionB.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "course_title").ToString();
-
-                Multiview1.SetActiveView(View4);
-            }
+        protected void AnswersGrid_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["question_id"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
     }
 }
