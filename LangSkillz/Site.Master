@@ -36,9 +36,13 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <nav style="position: fixed;top: 0; width: 100%;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-success">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">LangSkillz</a>
+                <a class="navbar-brand" runat="server" href="~/">
+                    <div style="height:47px; width: 100%; text-align:center" >
+                        <img src="Image/LangSkillz_LIGHT.png" alt="LangSkillz Logo" style="width: auto; max-height: 100%; display: inline-block;">
+                    </div>
+                </a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -96,6 +100,7 @@
                     &copy; <%: DateTime.Now.Year %> - LangSkillz <br>
                     Author: VHNam1507 - Vũ Hoàng Nam
                 </p>
+                
             </footer>
         </div>
     </form>

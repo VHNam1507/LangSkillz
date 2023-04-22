@@ -3,6 +3,7 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <br /><br /><br />
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %>.</h2>
         <div class="col-md-8">
@@ -38,27 +39,27 @@
                             </div>
                         </div>
                     </div>
+
+                    <br /> <br />
                     <div class="row">
-                        <div class="col-offset-md-2 col-md-10">
+                        <div class="offset-md-2 col-md-10">
                             <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-outline-dark" />
                         </div>
                     </div>
+                    <br /> <br />
+                    <div class="row">
+                        <div class="offset-md-2 col-md-10">Don't have an account? 
+                            <asp:HyperLink href="Register.aspx" runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
+                        </div>
+                    </div>
                 </div>
-                <p>
-                    <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
-                </p>
-                <p>
-                    <%-- Enable this once you have account confirmation enabled for password reset functionality
+                <br />
+
+<%--                <p>
                     <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
-                    --%>
-                </p>
+                </p>--%>
             </section>
         </div>
 
-        <div class="col-md-4">
-            <section id="socialLoginForm">
-                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
-            </section>
-        </div>
     </main>
 </asp:Content>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="LangSkillz.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <br /><br /> <br />
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %>.</h2>
         <p class="text-danger">
@@ -56,7 +57,6 @@
                     ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\da-zA-Z]).{8,}$" />
             </div>
         </div>
-
 
         <div class="row">
             <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 col-form-label">Confirm password</asp:Label>
