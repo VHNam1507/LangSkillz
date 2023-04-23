@@ -47,7 +47,7 @@ namespace LangSkillz.Account
             else if (rad_Student.Checked == true)
             {
                 tbl_StudentsTableAdapter student = new tbl_StudentsTableAdapter();
-                Membership.CreateUser(Email.Text, Password.Text);
+                Membership.CreateUser(Email.Text, Password.Text, Email.Text);
                 Roles.AddUserToRole(Email.Text, "Students");
                 student.Insert(FullName.Text, Email.Text);
                 Response.Redirect("~/Default.aspx");
@@ -55,7 +55,7 @@ namespace LangSkillz.Account
             else
             {
                 // Hiển thị thông báo lỗi nếu người dùng nhập sai thông tin
-                FailureText.Text = "Please choose your ROLE (INSTRUCTOR or Student).";
+                FailureText.Text = "Please choose your ROLE (INSTRUCTOR or STUDENT).";
                 ErrorMessage.Visible = true;
             }
         }

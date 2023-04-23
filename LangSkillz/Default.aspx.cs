@@ -12,8 +12,9 @@ namespace LangSkillz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //    Roles.CreateRole("Instructors");
-            //    Roles.CreateRole("Students");
+            //Roles.CreateRole("Instructors");
+            //Roles.CreateRole("Students");
+            //Membership.DeleteUser("instructor@test.com");
         }
     }
 }

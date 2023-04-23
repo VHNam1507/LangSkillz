@@ -63,7 +63,7 @@
 
                                     <asp:RoleGroup Roles="Students">
                                         <ContentTemplate>
-                                            <a class="nav-link" runat="server" href="~/Instructors/AddCourses.aspx">Add Courses</a>
+                                            <a class="nav-link" runat="server" href="~/Instructors/AddCourses.aspx">View Courses</a>
                                         </ContentTemplate>
                                     </asp:RoleGroup>
                                 </RoleGroups>

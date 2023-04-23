@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewCourses.aspx.cs" Inherits="LangSkillz.Students.ViewCourses" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewCourses.aspx.cs" Inherits="LangSkillz.Students.ViewCourses" %>
 
 <!DOCTYPE html>
 
@@ -12,4 +12,4 @@
         </div>
     </form>
 </body>
-</html>
+</html>--%>
