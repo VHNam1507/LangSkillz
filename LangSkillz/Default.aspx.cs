@@ -12,9 +12,19 @@ namespace LangSkillz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Roles.CreateRole("Instructors");
-            //Roles.CreateRole("Students");
-            //Membership.DeleteUser("instructor@test.com");
+            if (User.Identity.IsAuthenticated)
+            {
+                registerButton.Visible = false;
+                loginButton.Visible = false;
+                welcomeMessage.Visible = true;
+            }
+            else
+            {
+                registerButton.Visible = true;
+                loginButton.Visible = true;
+                welcomeMessage.Visible = false;
+            }
         }
+
     }
 }

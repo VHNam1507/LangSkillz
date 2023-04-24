@@ -532,6 +532,9 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\LangSkillz_DataSet.cs">
+      <DependentUpon>LangSkillz_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\LangSkillz_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

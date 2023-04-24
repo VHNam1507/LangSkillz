@@ -78,13 +78,13 @@ namespace LangSkillz.Instructors
         protected global::System.Web.UI.WebControls.TextBox CourseTitle_Textbox;
 
         /// <summary>
-        /// htmlContent control.
+        /// htmlCourseContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxHtmlEditor.ASPxHtmlEditor htmlContent;
+        protected global::DevExpress.Web.ASPxHtmlEditor.ASPxHtmlEditor htmlCourseContent;
 
         /// <summary>
         /// btn_SaveCourse control.
@@ -105,13 +105,22 @@ namespace LangSkillz.Instructors
         protected global::System.Web.UI.WebControls.View View3;
 
         /// <summary>
-        /// lbl_questionA control.
+        /// lbl_coursesName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_questionA;
+        protected global::System.Web.UI.WebControls.Label lbl_coursesName;
+
+        /// <summary>
+        /// btn_AddLesson control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_AddLesson;
 
         /// <summary>
         /// ASPxGridView2 control.
@@ -121,6 +130,69 @@ namespace LangSkillz.Instructors
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView ASPxGridView2;
+
+        /// <summary>
+        /// View4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View4;
+
+        /// <summary>
+        /// LessonTitle_Textbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LessonTitle_Textbox;
+
+        /// <summary>
+        /// htmlLessonContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxHtmlEditor.ASPxHtmlEditor htmlLessonContent;
+
+        /// <summary>
+        /// btn_SaveLesson control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_SaveLesson;
+
+        /// <summary>
+        /// View5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View5;
+
+        /// <summary>
+        /// lbl_questionA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_questionA;
+
+        /// <summary>
+        /// ASPxGridView3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView ASPxGridView3;
 
         /// <summary>
         /// ObjectDataSource2 control.

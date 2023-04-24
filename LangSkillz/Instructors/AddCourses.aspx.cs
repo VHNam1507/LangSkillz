@@ -18,8 +18,9 @@ namespace LangSkillz.Instructors
             if (!IsPostBack)
             {
                 tbl_CoursesTableAdapter the_course = new tbl_CoursesTableAdapter();
-                ASPxGridView1.DataSource = the_course.Get_by_InstructorID((int)Session["instructor_ID"]);
+                ASPxGridView1.DataSource = the_course.Get_by_InstructorID(1);
                 ASPxGridView1.DataBind();
+
             }
         }
 
@@ -34,10 +35,53 @@ namespace LangSkillz.Instructors
             try
             {
                 tbl_CoursesTableAdapter the_course = new tbl_CoursesTableAdapter();
-                the_course.Insert((int) (Session["instructor_ID"]),CourseTitle_Textbox.Text,htmlContent.Html);
+                the_course.Insert(1,CourseTitle_Textbox.Text,htmlCourseContent.Html);
             }
             catch (Exception ex)
             { 
+                lbl_ERROR.Text = ex.Message;
+            }
+        }
+
+        protected void ASPxGridView1_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
+        {
+            if (e.CommandArgs.CommandName == "lessons")
+            {
+                Session["course_ID"] = e.CommandArgs.CommandArgument;
+                lbl_coursesName.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "course_title").ToString();
+                Multiview1.SetActiveView(View3);
+
+                tbl_LessonsTableAdapter the_lesson = new tbl_LessonsTableAdapter();
+                ASPxGridView2.DataSource = the_lesson.Get_by_CoursesID(1);
+                ASPxGridView2.DataBind();
+            }
+        }
+
+        protected void ASPxGridView2_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
+        {
+            if (e.CommandArgs.CommandName == "questions")
+            {
+                Session["lesson_ID"] = e.CommandArgs.CommandArgument;
+                lbl_questionA.Text = ASPxGridView2.GetRowValues(e.VisibleIndex, "lesson_title").ToString();
+                Multiview1.SetActiveView(View5);
+
+            }
+        }
+
+        protected void btn_AddLesson_Click(object sender, EventArgs e)
+        {
+            Multiview1.SetActiveView(View4);
+        }
+
+        protected void btn_SaveLesson_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tbl_LessonsTableAdapter the_lesson = new tbl_LessonsTableAdapter();
+                the_lesson.Insert(1, LessonTitle_Textbox.Text, htmlLessonContent.Html);
+            }
+            catch (Exception ex)
+            {
                 lbl_ERROR.Text = ex.Message;
             }
         }
@@ -54,6 +98,11 @@ namespace LangSkillz.Instructors
             }
         }
 
+        protected void AnswersGrid_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["question_id"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+        }
+
         protected void btn_SaveAns_Click(object sender, EventArgs e)
         {
             try
@@ -64,21 +113,6 @@ namespace LangSkillz.Instructors
             {
 
             }
-        }
-
-        protected void ASPxGridView1_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
-        {
-            if (e.CommandArgs.CommandName == "question")
-            {
-                Session["course_ID"] = e.CommandArgs.CommandArgument;
-                lbl_questionA.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "course_title").ToString();
-                Multiview1.SetActiveView(View3);
-            }
-        }
-
-        protected void AnswersGrid_BeforePerformDataSelect(object sender, EventArgs e)
-        {
-            Session["question_id"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
     }
 }

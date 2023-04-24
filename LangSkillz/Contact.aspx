@@ -17,11 +17,15 @@
 
                 <address>
                     <strong>Support:</strong>   <a href="mailto:Support@example.com">20H1120232@ut.edu.vn</a><br />
-                    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">20H1120232@ut.edu.vn</a>
+                    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">20H1120232@ut.edu.vn</a><br />
+                    <strong>Copyright:</strong>   <a href="mailto:Support@example.com">20H1120232@ut.edu.vn</a><br />
+                    <strong>HR:</strong> <a href="mailto:Marketing@example.com">20H1120232@ut.edu.vn</a><br />
+                    <strong>Job Oppoturnity:</strong>   <a href="mailto:Support@example.com">20H1120232@ut.edu.vn</a><br />
+                    <strong>Co-op:</strong> <a href="mailto:Marketing@example.com">20H1120232@ut.edu.vn</a><br />
                 </address>
             </div>
             <div class="col-md-4">
-                <img src="Image/LangSkillz_Logo_trans.png" alt="LangSkillz Logo" style="max-width: 100%; height: auto; display: block;">
+                <img class="align-content-center" src="Image/LangSkillz_Logo_trans.png" alt="LangSkillz Logo" style="max-width: 100%; height: auto; display: block;">
             </div>
         </div>
     </main>
