@@ -27,8 +27,13 @@ namespace LangSkillz.Account
                 {
                     tbl_InstructorsTableAdapter instructor = new tbl_InstructorsTableAdapter();
                     Session["instructor_ID"] = instructor.GetInstructorID(Email.Text);
-                    FormsAuthentication.SetAuthCookie(Email.Text, true);
-                    Response.Redirect("~/Default.aspx");
+                    Response.Output.Write(Session["instructor_ID"]) ;
+
+                    Email.Text = (Session["instructor_ID"]).ToString();
+
+                    
+                    //FormsAuthentication.SetAuthCookie(Email.Text, true);
+                    //Response.Redirect("~/Default.aspx");
                 }
                 else if (Roles.IsUserInRole(Email.Text, "Students"))
                 {

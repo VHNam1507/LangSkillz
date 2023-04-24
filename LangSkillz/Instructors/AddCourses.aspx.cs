@@ -18,7 +18,7 @@ namespace LangSkillz.Instructors
             if (!IsPostBack)
             {
                 tbl_CoursesTableAdapter the_course = new tbl_CoursesTableAdapter();
-                ASPxGridView1.DataSource = the_course.Get_by_InstructorID(1);
+                ASPxGridView1.DataSource = the_course.Get_by_InstructorID((int)Session["instructor_ID"]);
                 ASPxGridView1.DataBind();
 
             }
@@ -52,7 +52,7 @@ namespace LangSkillz.Instructors
                 Multiview1.SetActiveView(View3);
 
                 tbl_LessonsTableAdapter the_lesson = new tbl_LessonsTableAdapter();
-                ASPxGridView2.DataSource = the_lesson.Get_by_CoursesID(1);
+                ASPxGridView2.DataSource = the_lesson.Get_by_CoursesID((int)Session["course_ID"]);
                 ASPxGridView2.DataBind();
             }
         }
@@ -78,7 +78,7 @@ namespace LangSkillz.Instructors
             try
             {
                 tbl_LessonsTableAdapter the_lesson = new tbl_LessonsTableAdapter();
-                the_lesson.Insert(1, LessonTitle_Textbox.Text, htmlLessonContent.Html);
+                the_lesson.Insert((int)Session["course_ID"], LessonTitle_Textbox.Text, htmlLessonContent.Html);
             }
             catch (Exception ex)
             {

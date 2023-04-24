@@ -4320,8 +4320,8 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT instructor_ID\r\nFROM tbl_Instructors\r\nWHERE instructor_email=@instructor_em" +
-                "ail";
+            this._commandCollection[1].CommandText = "SELECT instructor_ID FROM tbl_Instructors WHERE instructor_email=@instructor_emai" +
+                "l";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::Microsoft.Data.SqlClient.SqlParameter param = new global::Microsoft.Data.SqlClient.SqlParameter();
             param.ParameterName = "@instructor_email";
