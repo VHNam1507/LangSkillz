@@ -1,61 +1,34 @@
-﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewCourses.aspx.cs" Inherits="LangSkillz.Students.ViewCourses" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewCourses.aspx.cs" Inherits="LangSkillz.Students.ViewCourses" %>
 
-<!DOCTYPE html>
+<%@ Register Assembly="DevExpress.Web.v22.2, Version=22.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
-    <asp:Content ID="Contentl" ContentPlaceHolderIl
+<%@ Register Assembly="DevExpress.Web.ASPxHtmlEditor.v22.2, Version=22.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxHtmlEditor" TagPrefix="dx" %>
 
-    <hr />
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxSpellChecker" Assembly="DevExpress.Web.ASPxSpellChecker.v22.2, Version=22.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
 
-    </asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    " Language="C#" MasterPageFile="~/Site.master” AutoEventWireup="true” CodeFile="ViewCourses.aspx.cs” Inheriiz
+    <br /><br /><br />
+    <h3> List of LangSkillz's Courses</h3>
+    <hr /> <br />
 
-    <%@ Register Assembly="DevExpress.Web.v17.2, Version=17.2.3.@, Culture=neutral, PublicKeyToken=b88d1754d7@0e49a" Hapespace-}
-
-    'MainContent” Runat="Server">
-
-    <h3>List of Courses</h3>
-
-    <dx:ASPxCardView ID="ASPxCardViewl" Width="10@%" runat="server">
-    <Columns>
-    <dx:CardViewTextColumn FieldName="course_title"></dx:CardViewTextColumn>
-    <dx:CardviewTextColumn FieldName
-    </Columns>
-    <Templates>
-    <Card>
-
-    instructor_name"></dx:CardviewTextColumn>
-
-    opx™>|
-
-    <div style="padding
-    LinkButtonl” Font-Bold="true” runat="server"> <¥#Eval("course_title") %> </asp:LinkBut'
-
-    <asp:LinkButton ID=
-    <br />
-    <br />
-    <ha>BY</h4>
-    <br />
-    <h3>
-    <¥#Eval("instructor_name”) %>
-    </h3>
-    </div>
-
-    </Card>
-    </Templates>
+    <dx:ASPxCardView ID="ASPxCardView1" width="100%" runat="server">
+        <Columns>
+            <dx:CardViewTextColumn FieldName="course_title"></dx:CardViewTextColumn>
+            <dx:CardViewTextColumn FieldName="instructor_name"></dx:CardViewTextColumn>
+        </Columns>
+        <Templates>
+            <Card>
+                <div style="padding:10px">
+                    <asp:LinkButton ID="Link_btn1" OnClick="Link_btn1_Click" CommandArgument='<%#Eval("course_title")%>' runat="server"> <b style="font-size:large;"><%#Eval("course_title")%></b> </asp:LinkButton>
+                    <br /><br /><hr /><br />
+                    <p>
+                        <i style="font-weight:400"> Created by</i><br />
+                        <b style="font-size:medium;"> <%#Eval("instructor_name") %> </b>
+                    </p>                   
+                </div>
+            </Card>
+        </Templates>
     </dx:ASPxCardView>
 
-
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>--%>
+</asp:Content>

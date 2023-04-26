@@ -12,7 +12,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/Image/LangSkillz_LIGHT.png" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
@@ -63,7 +63,7 @@
 
                                     <asp:RoleGroup Roles="Students">
                                         <ContentTemplate>
-                                            <a class="nav-link" runat="server" href="~/Instructors/AddCourses.aspx">View Courses</a>
+                                            <a class="nav-link" runat="server" href="~/Students/ViewCourses.aspx">View Courses</a>
                                         </ContentTemplate>
                                     </asp:RoleGroup>
                                 </RoleGroups>

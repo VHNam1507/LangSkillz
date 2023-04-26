@@ -12,7 +12,7 @@
                 <p class="text-success"><%: SuccessMessage %></p>
             </asp:PlaceHolder>
         </div>
-
+        <br />
         <div class="col-md-12">
             <div class="row">
                 <h4>WELCOME BACK
@@ -37,8 +37,7 @@
                   <div class="col-md-8"><asp:Label ID="lbl_role" runat="server" Text="Lmao" /></div>
                 </div>
                 <br /><br />
-               
-
+                
                 <dl class="dl-horizontal">
                     <dt> Change your Password:</dt>
                     <dd>

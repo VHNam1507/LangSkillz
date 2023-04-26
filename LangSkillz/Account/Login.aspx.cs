@@ -9,6 +9,7 @@ using System.Web.Security;
 using DevExpress.XtraRichEdit.Fields;
 using LangSkillz;
 using LangSkillz.App_Start.LangSkillz_DataSetTableAdapters;
+using static DevExpress.Utils.MVVM.Internal.ILReader;
 
 namespace LangSkillz.Account
 {
@@ -26,19 +27,16 @@ namespace LangSkillz.Account
                 if (Roles.IsUserInRole(Email.Text, "Instructors"))
                 {
                     tbl_InstructorsTableAdapter instructor = new tbl_InstructorsTableAdapter();
-                    Session["instructor_ID"] = instructor.GetInstructorID(Email.Text);
-                    Response.Output.Write(Session["instructor_ID"]) ;
+                    Session["instructor_ID"] = instructor.Get_InstructorID(Email.Text);
 
-                    Email.Text = (Session["instructor_ID"]).ToString();
-
-                    
-                    //FormsAuthentication.SetAuthCookie(Email.Text, true);
-                    //Response.Redirect("~/Default.aspx");
+                    FormsAuthentication.SetAuthCookie(Email.Text, true);
+                    Response.Redirect("~/Default.aspx");
                 }
                 else if (Roles.IsUserInRole(Email.Text, "Students"))
                 {
                     tbl_StudentsTableAdapter student = new tbl_StudentsTableAdapter();
-                    Session["student_ID"] = student.GetStudentID(Email.Text);
+                    Session["student_ID"] = student.Get_StudentID(Email.Text);
+
                     FormsAuthentication.SetAuthCookie(Email.Text, true);
                     Response.Redirect("~/Default.aspx");
                 }
