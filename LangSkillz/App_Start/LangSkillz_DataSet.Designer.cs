@@ -5226,7 +5226,7 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT course_ID, instructor_ID, course_title, course_content\r\nFROM     tbl_Cours" +
@@ -5234,28 +5234,41 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT course_ID, instructor_ID, course_content, course_title\r\nFROM     tbl_Cours" +
-                "es\r\nWHERE  (instructor_ID = @instructor_id)";
+            this._commandCollection[1].CommandText = "SELECT course_ID, instructor_ID, course_title, course_content\r\nFROM     tbl_Cours" +
+                "es\r\nWHERE course_ID = @courseID";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::Microsoft.Data.SqlClient.SqlParameter param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@courseID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SqlDbType = global::System.Data.SqlDbType.Int;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = "course_ID";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT course_ID, instructor_ID, course_content, course_title\r\nFROM     tbl_Cours" +
+                "es\r\nWHERE  (instructor_ID = @instructor_id)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
             param.ParameterName = "@instructor_id";
             param.DbType = global::System.Data.DbType.Int32;
             param.SqlDbType = global::System.Data.SqlDbType.Int;
             param.Size = 4;
             param.IsNullable = true;
             param.SourceColumn = "instructor_ID";
-            this._commandCollection[1].Parameters.Add(param);
-            this._commandCollection[2] = new global::Microsoft.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT course_ID FROM tbl_Courses WHERE course_title=@title";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT course_ID FROM tbl_Courses WHERE course_title=@title";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::Microsoft.Data.SqlClient.SqlParameter();
             param.ParameterName = "@title";
             param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
             param.Size = 2147483647;
             param.IsNullable = true;
             param.SourceColumn = "course_title";
-            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5273,8 +5286,20 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual LangSkillz_DataSet.tbl_CoursesDataTable Get_by_InstructorID(global::System.Nullable<int> instructor_id) {
+        public virtual LangSkillz_DataSet.tbl_CoursesDataTable Get_by_CoursesID(int courseID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(courseID));
+            LangSkillz_DataSet.tbl_CoursesDataTable dataTable = new LangSkillz_DataSet.tbl_CoursesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LangSkillz_DataSet.tbl_CoursesDataTable Get_by_InstructorID(global::System.Nullable<int> instructor_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((instructor_id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(instructor_id.Value));
             }
@@ -5420,7 +5445,7 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<int> Get_CourseID(string title) {
-            global::Microsoft.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::Microsoft.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((title == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6031,7 +6056,7 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT lesson_ID, course_ID, lesson_title, lesson_content\r\nFROM     tbl_Lessons";
@@ -6051,15 +6076,28 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT lesson_ID FROM tbl_Lessons \r\nWHERE lesson_title=@title";
+            this._commandCollection[2].CommandText = "SELECT lesson_ID, course_ID, lesson_title, lesson_content\r\nFROM     tbl_Lessons\r\n" +
+                "WHERE lesson_ID=@lessonID";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@lessonID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SqlDbType = global::System.Data.SqlDbType.Int;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = "lesson_ID";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT lesson_ID FROM tbl_Lessons \r\nWHERE lesson_title=@title";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::Microsoft.Data.SqlClient.SqlParameter();
             param.ParameterName = "@title";
             param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
             param.Size = 2147483647;
             param.IsNullable = true;
             param.SourceColumn = "lesson_title";
-            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6085,6 +6123,18 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            LangSkillz_DataSet.tbl_LessonsDataTable dataTable = new LangSkillz_DataSet.tbl_LessonsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LangSkillz_DataSet.tbl_LessonsDataTable Get_by_LessonID(int lessonID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(lessonID));
             LangSkillz_DataSet.tbl_LessonsDataTable dataTable = new LangSkillz_DataSet.tbl_LessonsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -6224,7 +6274,7 @@ namespace LangSkillz.App_Start.LangSkillz_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<int> Get_LessonID(string title) {
-            global::Microsoft.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::Microsoft.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((title == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }

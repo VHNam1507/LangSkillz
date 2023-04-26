@@ -36,7 +36,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav style="position: fixed;top: 0; width: 100%;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-success">
+        <nav style="position: fixed;top: 0; width: 100%; z-index: 9999;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-success">
             <div class="container">
                 <a class="navbar-brand" runat="server" href="~/">
                     <div style="height:47px; width: 100%; text-align:center" >
@@ -64,6 +64,17 @@
                                     <asp:RoleGroup Roles="Students">
                                         <ContentTemplate>
                                             <a class="nav-link" runat="server" href="~/Students/ViewCourses.aspx">View Courses</a>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                </RoleGroups>
+                            </asp:LoginView>
+                        </li>
+                        <li style="font-weight:bold" class="nav-item">
+                            <asp:LoginView ID="LoginView2" runat="server">
+                                <RoleGroups>
+                                    <asp:RoleGroup Roles="Students">
+                                        <ContentTemplate>
+                                            <a class="nav-link" runat="server" href="~/Students/CourseDetail.aspx">My Following Courses</a>
                                         </ContentTemplate>
                                     </asp:RoleGroup>
                                 </RoleGroups>

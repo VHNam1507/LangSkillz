@@ -1,6 +1,3 @@
-E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.csproj.AssemblyReference.cache
-E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.dll.licenses
-E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.csproj.CoreCompileInputs.cache
 E:\LangSkillz\LangSkillz\bin\LangSkillz.dll.config
 E:\LangSkillz\LangSkillz\bin\LangSkillz.dll
 E:\LangSkillz\LangSkillz\bin\LangSkillz.pdb
@@ -253,6 +250,9 @@ E:\LangSkillz\LangSkillz\bin\pt-BR\Microsoft.Data.SqlClient.resources.dll
 E:\LangSkillz\LangSkillz\bin\ru\Microsoft.Data.SqlClient.resources.dll
 E:\LangSkillz\LangSkillz\bin\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 E:\LangSkillz\LangSkillz\bin\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.csproj.AssemblyReference.cache
+E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.dll.licenses
+E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.csproj.CoreCompileInputs.cache
 E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.csproj.CopyComplete
 E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.dll
 E:\LangSkillz\LangSkillz\obj\Debug\LangSkillz.pdb
