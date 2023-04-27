@@ -74,7 +74,7 @@
                                 <RoleGroups>
                                     <asp:RoleGroup Roles="Students">
                                         <ContentTemplate>
-                                            <a class="nav-link" runat="server" href="~/Students/CourseDetail.aspx">My Following Courses</a>
+                                            <a class="nav-link" runat="server" href="~/Students/MyCourses.aspx">My Enrolled Courses</a>
                                         </ContentTemplate>
                                     </asp:RoleGroup>
                                 </RoleGroups>

@@ -47,36 +47,35 @@
                         <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" EnableCallBacks="true">
                             <TabPages>
                             
-                                <dx:TabPage Text="Answers" Visible="true">
+                                <dx:TabPage Text="Multiple choice Answers" Visible="true">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server">
                                             <dx:ASPxGridView ID="AnswersGrid" Settings-ShowColumnHeaders="false" runat="server" DataSourceID="ObjectDataSource3"
                                             KeyFieldName="quizAns_ID" Width="100%" OnBeforePerformDataSelect="AnswersGrid_BeforePerformDataSelect">
-                                            
                                                 <Templates>
                                                     <DataRow>
-                                                        <table style="width:100%; padding:10px">
+                                                        <table style="width:100%; padding:10px" >
                                                             <tr>
                                                                 <td>
-                                                                    <asp:CheckBox ID="checkA" runat="server" style="margin-bottom: 10px; font-size: 14px;" Text='<%# "  " + Eval("opt_A") %>'/>
+                                                                    <asp:CheckBox ID="checkA" runat="server" style="margin-top: 10px; font-size: 16px;" Text='<%# "  " + Eval("opt_A") %>'/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <asp:CheckBox ID="checkB" runat="server" style="margin-bottom: 10px; font-size: 14px;" Text='<%# "  " + Eval("opt_B") %>'/>
+                                                                    <br /><asp:CheckBox ID="checkB" runat="server" style="margin-bottom: 10px; font-size: 16px;" Text='<%# "  " + Eval("opt_B") %>'/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <asp:CheckBox ID="checkC" runat="server" style="margin-bottom: 10px; font-size: 14px;" Text='<%# "  " + Eval("opt_C") %>'/>
+                                                                    <br /><asp:CheckBox ID="checkC" runat="server" style="margin-bottom: 10px; font-size: 16px;" Text='<%# "  " + Eval("opt_C") %>'/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <asp:CheckBox ID="checkD" runat="server" style="margin-bottom: 10px; font-size: 14px;" Text='<%# "  " + Eval("opt_D") %>'/>
+                                                                    <br /><asp:CheckBox ID="checkD" runat="server" style="margin-bottom: 10px; font-size: 16px;" Text='<%# "  " + Eval("opt_D") %>'/><br />
                                                                 </td>
                                                             </tr>
-                                                        </table>
+                                                    </table>
                                                     </DataRow>
                                                 </Templates>
                                         
@@ -84,8 +83,10 @@
                                         </dx:ContentControl>
                                     </ContentCollection>
                                 </dx:TabPage>
+                                <dx:TabPage Text="Essay Answer"></dx:TabPage>
                             </TabPages>
-                        </dx:ASPxPageControl>
+                        </dx:ASPxPageControl><br />
+                        <dx:ASPxButton style="color:darkgreen; font-size: 14px;" BackColor="#009900" ID="btn_submit" runat="server" Text="Submit"></dx:ASPxButton>
                     </div>
                 </DetailRow>
             </Templates>
@@ -96,7 +97,11 @@
                 <Header Wrap="True"></Header>
             </Styles>
         </dx:ASPxGridView>
-        <dx:ASPxButton style="color:darkgreen; font-size: 16px" BackColor="#009900" ID="btn_submit" runat="server" Text="Submit"></dx:ASPxButton>
+        <div class="row">
+            <h5 class="col-md-4" style="color:orangered"> &#8618;&#8594; Your correct number of MCQs is: </h5>
+            <asp:Label class="col-md-8" ID="lbl_score" Text="N/A" runat="server"></asp:Label>
+        </div>
+        
     </div>
     
     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="Get_by_LessonID" TypeName="LangSkillz.App_Start.LangSkillz_DataSetTableAdapters.tbl_QuestionsTableAdapter" >

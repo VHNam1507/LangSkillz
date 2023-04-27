@@ -19,7 +19,7 @@ namespace LangSkillz.Students
                 ASPxCardView1.DataSource = icourses.GetData();
                 ASPxCardView1.DataBind();
             }
-
+            
         }
 
         protected void Link_btn1_Click(object sender, EventArgs e)

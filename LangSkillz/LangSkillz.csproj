@@ -411,6 +411,7 @@
     <Content Include="Site.Master" />
     <Content Include="Students\CourseDetail.aspx" />
     <Content Include="Students\LessonDetail.aspx" />
+    <Content Include="Students\MyCourses.aspx" />
     <Content Include="Students\ViewCourses.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -596,6 +597,13 @@
     </Compile>
     <Compile Include="Students\LessonDetail.aspx.designer.cs">
       <DependentUpon>LessonDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Students\MyCourses.aspx.cs">
+      <DependentUpon>MyCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Students\MyCourses.aspx.designer.cs">
+      <DependentUpon>MyCourses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Students\ViewCourses.aspx.cs">
       <DependentUpon>ViewCourses.aspx</DependentUpon>

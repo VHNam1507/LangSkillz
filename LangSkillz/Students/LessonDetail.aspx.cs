@@ -25,5 +25,11 @@ namespace LangSkillz.Students
         {
             Session["question_ID"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
+
+        protected void CalGrade()
+        {
+            
+        
+        }
     }
 }

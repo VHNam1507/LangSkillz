@@ -26,12 +26,36 @@
         </Templates>
     </dx:ASPxGridView><br />
     
-    <h3>Attempt Lessons</h3> <br /><hr />
+    <h3>Attempt Lessons</h3> <br />
+    <asp:LinkButton ID="link_btn_subcribe" CommandArgument='<%#Eval("course_ID")%>' OnClick="link_btn_subcribe_Click" runat="server" Visible="true" style= "display: inline-block;
+                                                                                                                                                            padding: 10px; 
+                                                                                                                                                            border: 2px solid #ccc;
+                                                                                                                                                            border-radius: 5px; 
+                                                                                                                                                            background-color:crimson; 
+                                                                                                                                                            color:white;
+                                                                                                                                                            font-size:20px;
+                                                                                                                                                            font-weight:bold;
+                                                                                                                                                            text-decoration: none;" >
+        Subscribe to view the lessons of this course! 
 
-    <dx:ASPxCardView ID="ASPxCardView1" width="100%" runat="server">
+    </asp:LinkButton>
+    <hr />
+    <asp:LinkButton ID="link_btn_unsubcribe" CommandArgument='<%#Eval("course_ID")%>' OnClick="link_btn_unsubcribe_Click" runat="server" Visible="false" style= "display: inline-block;
+                                                                                                                                                            padding: 10px; 
+                                                                                                                                                            border: 2px solid #ccc;
+                                                                                                                                                            border-radius: 5px; 
+                                                                                                                                                            background-color:midnightblue; 
+                                                                                                                                                            color:white;
+                                                                                                                                                            font-size:20px;
+                                                                                                                                                            font-weight:bold;
+                                                                                                                                                            text-decoration: none;" > 
+        Unsubscribe this course! 
+    </asp:LinkButton>
+
+    <dx:ASPxCardView ID="ASPxCardView1" width="100%" runat="server" Visible="false">
         <Columns>
             <dx:CardViewTextColumn FieldName="lesson_title"></dx:CardViewTextColumn>
-            <dx:CardViewTextColumn FieldName="instructor_name"></dx:CardViewTextColumn>
+            <dx:CardViewTextColumn FieldName="course_name"></dx:CardViewTextColumn>
         </Columns>
         <Templates>
             <Card>
@@ -41,12 +65,10 @@
                     </asp:LinkButton>
                     <br /><br /><hr /><br />
                     <p>
-                        <i style="font-weight:400">A lesson from</i><br />
+                        <i style="font-weight:400; font-size:16px;">Click to view</i><br />
                     </p>                   
                 </div>
             </Card>
         </Templates>
     </dx:ASPxCardView>
-    
-
 </asp:Content>

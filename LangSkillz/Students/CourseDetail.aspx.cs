@@ -21,6 +21,15 @@ namespace LangSkillz.Students
                 tbl_LessonsTableAdapter thelesson = new tbl_LessonsTableAdapter();
                 ASPxCardView1.DataSource = thelesson.Get_by_CoursesID(Convert.ToInt32(Session["course_ID"]));
                 ASPxCardView1.DataBind();
+
+                tbl_SubscriptionsTableAdapter subcription = new tbl_SubscriptionsTableAdapter();
+                
+                if (subcription.CheckSub((int)(Session["student_ID"]), Convert.ToInt32(Session["course_ID"])) > 0)
+                {
+                    link_btn_unsubcribe.Visible = true;
+                    ASPxCardView1.Visible = true;
+                    link_btn_subcribe.Visible = false;
+                }
             }
         }
 
@@ -31,5 +40,20 @@ namespace LangSkillz.Students
             Response.Redirect("~/Students/LessonDetail.aspx");
         }
 
+        protected void link_btn_subcribe_Click(object sender, EventArgs e)
+        {
+            tbl_SubscriptionsTableAdapter subcription = new tbl_SubscriptionsTableAdapter();
+            subcription.Insert((int)(Session["student_ID"]), Convert.ToInt32(Session["course_ID"]));
+
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void link_btn_unsubcribe_Click(object sender, EventArgs e)
+        {
+            tbl_SubscriptionsTableAdapter subcription = new tbl_SubscriptionsTableAdapter();
+            subcription.Delete_by_StuCouID((int)(Session["student_ID"]), Convert.ToInt32(Session["course_ID"]));
+
+            Response.Redirect(Request.RawUrl);
+        }
     }
 }

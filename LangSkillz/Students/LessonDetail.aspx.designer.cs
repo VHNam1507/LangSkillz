@@ -33,13 +33,13 @@ namespace LangSkillz.Students
         protected global::DevExpress.Web.ASPxGridView ASPxGridView2;
 
         /// <summary>
-        /// btn_submit control.
+        /// lbl_score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btn_submit;
+        protected global::System.Web.UI.WebControls.Label lbl_score;
 
         /// <summary>
         /// ObjectDataSource2 control.
