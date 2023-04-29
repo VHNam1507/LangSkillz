@@ -635,6 +635,31 @@ WHERE student_ID = @studentID</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_MQsTableAdapter" GeneratorDataComponentClassName="vw_MQsTableAdapter" Name="vw_MQs" UserDataComponentName="vw_MQsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LangSkillzConnectionString (Web.config)" DbObjectName="LangSkillz.dbo.vw_MQs" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT question_ID, lesson_ID, quizAns_ID, question, correct_ans, opt_A, opt_B, opt_C, opt_D
+FROM     vw_MQs</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="question_ID" DataSetColumn="question_ID" />
+              <Mapping SourceColumn="lesson_ID" DataSetColumn="lesson_ID" />
+              <Mapping SourceColumn="quizAns_ID" DataSetColumn="quizAns_ID" />
+              <Mapping SourceColumn="question" DataSetColumn="question" />
+              <Mapping SourceColumn="correct_ans" DataSetColumn="correct_ans" />
+              <Mapping SourceColumn="opt_A" DataSetColumn="opt_A" />
+              <Mapping SourceColumn="opt_B" DataSetColumn="opt_B" />
+              <Mapping SourceColumn="opt_C" DataSetColumn="opt_C" />
+              <Mapping SourceColumn="opt_D" DataSetColumn="opt_D" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -842,12 +867,63 @@ WHERE student_ID = @studentID</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tbl_Subscriptions" msprop:Generator_RowEvHandlerName="tbl_SubscriptionsRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_SubscriptionsRowDeleted" msprop:Generator_RowDeletingName="tbl_SubscriptionsRowDeleting" msprop:Generator_RowEvArgName="tbl_SubscriptionsRowChangeEvent" msprop:Generator_TablePropName="tbl_Subscriptions" msprop:Generator_RowChangedName="tbl_SubscriptionsRowChanged" msprop:Generator_RowChangingName="tbl_SubscriptionsRowChanging" msprop:Generator_TableClassName="tbl_SubscriptionsDataTable" msprop:Generator_RowClassName="tbl_SubscriptionsRow" msprop:Generator_TableVarName="tabletbl_Subscriptions" msprop:Generator_UserTableName="tbl_Subscriptions">
+        <xs:element name="tbl_Subscriptions" msprop:Generator_RowClassName="tbl_SubscriptionsRow" msprop:Generator_RowEvHandlerName="tbl_SubscriptionsRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_SubscriptionsRowDeleted" msprop:Generator_RowDeletingName="tbl_SubscriptionsRowDeleting" msprop:Generator_RowEvArgName="tbl_SubscriptionsRowChangeEvent" msprop:Generator_TablePropName="tbl_Subscriptions" msprop:Generator_RowChangedName="tbl_SubscriptionsRowChanged" msprop:Generator_UserTableName="tbl_Subscriptions" msprop:Generator_RowChangingName="tbl_SubscriptionsRowChanging" msprop:Generator_TableClassName="tbl_SubscriptionsDataTable" msprop:Generator_TableVarName="tabletbl_Subscriptions">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="subcribe_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="subcribe_ID" msprop:Generator_ColumnPropNameInTable="subcribe_IDColumn" msprop:Generator_ColumnVarNameInTable="columnsubcribe_ID" msprop:Generator_UserColumnName="subcribe_ID" type="xs:int" />
-              <xs:element name="student_ID" msprop:Generator_ColumnPropNameInRow="student_ID" msprop:Generator_ColumnPropNameInTable="student_IDColumn" msprop:Generator_ColumnVarNameInTable="columnstudent_ID" msprop:Generator_UserColumnName="student_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="course_ID" msprop:Generator_ColumnPropNameInRow="course_ID" msprop:Generator_ColumnPropNameInTable="course_IDColumn" msprop:Generator_ColumnVarNameInTable="columncourse_ID" msprop:Generator_UserColumnName="course_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="subcribe_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="subcribe_ID" msprop:Generator_ColumnPropNameInTable="subcribe_IDColumn" msprop:Generator_ColumnPropNameInRow="subcribe_ID" msprop:Generator_ColumnVarNameInTable="columnsubcribe_ID" type="xs:int" />
+              <xs:element name="student_ID" msprop:Generator_UserColumnName="student_ID" msprop:Generator_ColumnPropNameInTable="student_IDColumn" msprop:Generator_ColumnPropNameInRow="student_ID" msprop:Generator_ColumnVarNameInTable="columnstudent_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="course_ID" msprop:Generator_UserColumnName="course_ID" msprop:Generator_ColumnPropNameInTable="course_IDColumn" msprop:Generator_ColumnPropNameInRow="course_ID" msprop:Generator_ColumnVarNameInTable="columncourse_ID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vw_MQs" msprop:Generator_RowEvHandlerName="vw_MQsRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_MQsRowDeleted" msprop:Generator_RowDeletingName="vw_MQsRowDeleting" msprop:Generator_RowEvArgName="vw_MQsRowChangeEvent" msprop:Generator_TablePropName="vw_MQs" msprop:Generator_RowChangedName="vw_MQsRowChanged" msprop:Generator_RowChangingName="vw_MQsRowChanging" msprop:Generator_TableClassName="vw_MQsDataTable" msprop:Generator_RowClassName="vw_MQsRow" msprop:Generator_TableVarName="tablevw_MQs" msprop:Generator_UserTableName="vw_MQs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="question_ID" msprop:Generator_ColumnPropNameInRow="question_ID" msprop:Generator_ColumnPropNameInTable="question_IDColumn" msprop:Generator_ColumnVarNameInTable="columnquestion_ID" msprop:Generator_UserColumnName="question_ID" type="xs:int" />
+              <xs:element name="lesson_ID" msprop:Generator_ColumnPropNameInRow="lesson_ID" msprop:Generator_ColumnPropNameInTable="lesson_IDColumn" msprop:Generator_ColumnVarNameInTable="columnlesson_ID" msprop:Generator_UserColumnName="lesson_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="quizAns_ID" msprop:Generator_ColumnPropNameInRow="quizAns_ID" msprop:Generator_ColumnPropNameInTable="quizAns_IDColumn" msprop:Generator_ColumnVarNameInTable="columnquizAns_ID" msprop:Generator_UserColumnName="quizAns_ID" type="xs:int" />
+              <xs:element name="question" msprop:Generator_ColumnPropNameInRow="question" msprop:Generator_ColumnPropNameInTable="questionColumn" msprop:Generator_ColumnVarNameInTable="columnquestion" msprop:Generator_UserColumnName="question" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="correct_ans" msprop:Generator_ColumnPropNameInRow="correct_ans" msprop:Generator_ColumnPropNameInTable="correct_ansColumn" msprop:Generator_ColumnVarNameInTable="columncorrect_ans" msprop:Generator_UserColumnName="correct_ans" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="opt_A" msprop:Generator_ColumnPropNameInRow="opt_A" msprop:Generator_ColumnPropNameInTable="opt_AColumn" msprop:Generator_ColumnVarNameInTable="columnopt_A" msprop:Generator_UserColumnName="opt_A" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="opt_B" msprop:Generator_ColumnPropNameInRow="opt_B" msprop:Generator_ColumnPropNameInTable="opt_BColumn" msprop:Generator_ColumnVarNameInTable="columnopt_B" msprop:Generator_UserColumnName="opt_B" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="opt_C" msprop:Generator_ColumnPropNameInRow="opt_C" msprop:Generator_ColumnPropNameInTable="opt_CColumn" msprop:Generator_ColumnVarNameInTable="columnopt_C" msprop:Generator_UserColumnName="opt_C" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="opt_D" msprop:Generator_ColumnPropNameInRow="opt_D" msprop:Generator_ColumnPropNameInTable="opt_DColumn" msprop:Generator_ColumnVarNameInTable="columnopt_D" msprop:Generator_UserColumnName="opt_D" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -892,6 +968,11 @@ WHERE student_ID = @studentID</CommandText>
     <xs:unique name="tbl_Subscriptions_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:tbl_Subscriptions" />
       <xs:field xpath="mstns:subcribe_ID" />
+    </xs:unique>
+    <xs:unique name="vw_MQs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vw_MQs" />
+      <xs:field xpath="mstns:question_ID" />
+      <xs:field xpath="mstns:quizAns_ID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

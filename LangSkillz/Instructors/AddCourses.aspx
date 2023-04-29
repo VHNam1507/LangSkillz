@@ -118,7 +118,7 @@
                     </FilterControl>
                 </SettingsPopup>
                 <Columns>
-                    <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true" ></dx:GridViewCommandColumn>
+                    <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true" ShowDeleteButton="true" ></dx:GridViewCommandColumn>
                     <dx:GridViewDataTextColumn FieldName="question_ID" ReadOnly="True" Visible="False" VisibleIndex="0">
                         <EditFormSettings Visible="False" />
                     </dx:GridViewDataTextColumn>
