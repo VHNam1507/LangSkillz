@@ -142,33 +142,10 @@ namespace LangSkillz.Instructors
 
         }
 
-        protected void btn_SaveQuiz_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
         protected void AnswersGrid_BeforePerformDataSelect(object sender, EventArgs e)
         {
             Session["question_id"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
 
-        protected void btn_SaveAns_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
     }
 }

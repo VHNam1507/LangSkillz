@@ -1,4 +1,5 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.SpreadsheetSource.Xls;
 using DevExpress.Web;
 using LangSkillz.App_Start.LangSkillz_DataSetTableAdapters;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 namespace LangSkillz.Students
 {
@@ -20,6 +22,10 @@ namespace LangSkillz.Students
                 tbl_LessonsTableAdapter thelesson = new tbl_LessonsTableAdapter();
                 ASPxGridView1.DataSource = thelesson.Get_by_LessonID(Convert.ToInt32(Session["lesson_ID"]));
                 ASPxGridView1.DataBind();
+
+                vw_MQsTableAdapter mcq = new vw_MQsTableAdapter();
+                ASPxCardView1.DataSource = mcq.Get_by_LessonID(Convert.ToInt32(Session["lesson_ID"]));
+                ASPxCardView1.DataBind(); 
             }
         }
 
@@ -28,94 +34,81 @@ namespace LangSkillz.Students
             Session["question_ID"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
 
-        //protected void btn_submit_Click(object sender, EventArgs e)
-        //{
-
-        //    string selectedAnswers = "";
-        //    CheckBox chkA = (CheckBox)AnswersGrid.FindRowCellTemplateControl(0, AnswersGrid.Columns["opt_A"] as GridViewDataColumn, "checkA");
-        //    CheckBox chkB = (CheckBox)AnswersGrid.FindRowCellTemplateControl(0, AnswersGrid.Columns["opt_B"] as GridViewDataColumn, "checkB");
-        //    CheckBox chkC = (CheckBox)AnswersGrid.FindRowCellTemplateControl(0, AnswersGrid.Columns["opt_C"] as GridViewDataColumn, "checkC");
-        //    CheckBox chkD = (CheckBox)AnswersGrid.FindRowCellTemplateControl(0, AnswersGrid.Columns["opt_D"] as GridViewDataColumn, "checkD");
-
-        //    if (chkA.Checked)
-        //    {
-        //        selectedAnswers += "A";
-        //    }
-        //    if (chkB.Checked)
-        //    {
-        //        selectedAnswers += "B";
-        //    }
-        //    if (chkC.Checked)
-        //    {
-        //        selectedAnswers += "C";
-        //    }
-        //    if (chkD.Checked)
-        //    {
-        //        selectedAnswers += "D";
-        //    }
-
-        //    // Lưu giá trị selectedAnswers vào database hoặc sử dụng nó theo nhu cầu của bạn
-        //}
-
-        protected void btn_submit_Click(object sender, EventArgs e)
+        protected void btn_AnswersSubmit_Click(object sender, EventArgs e)
         {
-        }
+            ASPxButton Submit = (ASPxButton)sender;
+            string cmdArg = Submit.CommandArgument.ToString();
 
-        protected void AnswersGrid_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            string visible_Index = cmdArg.Split(',')[0];
+            string questionID = cmdArg.Split(',')[1];
+            string quizAnsID = cmdArg.Split(',')[2];
+            string correctAns = cmdArg.Split(',')[3];
+
+            ASPxButton btn = (ASPxButton)sender;
+            int visibleIndex = Convert.ToInt32(visible_Index);
+
+            ASPxCheckBox checkbox_optA = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optA");
+            ASPxCheckBox checkbox_optB = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optB");
+            ASPxCheckBox checkbox_optC = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optC");
+            ASPxCheckBox checkbox_optD = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optD");
+
+            bool optA_checked = checkbox_optA.Checked;
+            bool optB_checked = checkbox_optB.Checked;
+            bool optC_checked = checkbox_optC.Checked;
+            bool optD_checked = checkbox_optD.Checked;
+
+            int cardID = Convert.ToInt32(ASPxCardView1.GetCardValues(visibleIndex, "CardID"));
+
+            string a = "";
+            if (optA_checked == true)
             {
-                GridView AnswersGrid = (GridView)e.Row.FindControl("AnswersGrid");
-
-                if (AnswersGrid != null)
-                {
-                    foreach (GridViewRow row in AnswersGrid.Rows)
-                    {
-                        CheckBox checkBox = (CheckBox)row.FindControl("CheckboxColumn");
-
-                        if (checkBox != null && checkBox.Checked)
-                        {
-                            // Do something with the checked checkbox
-                        }
-                    }
-                }
+                a = a + "A";
             }
+            if (optB_checked == true)
+            {
+                a = a + "B";
+            }
+            if (optC_checked == true)
+            {
+                a = a + "C";
+            }
+            if (optD_checked == true)
+            {
+                a = a + "D";
+            }
+
+            Label1.Text = a;
+            Label2.Text = questionID;
+            Label3.Text = quizAnsID;
+            Label4.Text = correctAns;
+            if (CompareMCAs(a, correctAns)==true)
+            {
+                Label5.Text = "Dap an dung";
+            }
+            else 
+            {
+                Label5.Text = "Dap an sai";
+
+            }
+
+            //tbl_StudentsAnsTableAdapter studentsAns = new tbl_StudentsAnsTableAdapter();
+            //studentsAns.Insert(Convert.ToInt32(Session["student_ID"]), Convert.ToInt32(questionID), Convert.ToInt32(quizAnsID), a);
+
         }
 
-
-
-
-
-        protected void CalGrade()
+        public bool CompareMCAs(string str1, string str2)
         {
+            str1 = str1.ToLower();
+            str2 = str2.ToLower();
+
+            if (str1.Length != str2.Length)
+                return false;
+
+            if (str1.Intersect(str2).Count() == str1.Length)
+                return true;
+
+            return false;
         }
 
-        protected void ASPxGridView2_DetailRowExpandedChanged1(object sender, ASPxGridViewDetailRowEventArgs e)
-        {
-
-        }
-
-        //protected void ASPxGridView1_RowDataBound(object sender, ASPxGridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow && e.Row is ASPxGridViewDetailRow)
-        //    {
-        //        // Lấy GridView con
-        //        ASPxGridView answersGrid = (e.Row as ASPxGridViewDetailRow).FindControl("AnswersGrid") as ASPxGridView;
-
-        //        // Lấy CheckBox trong GridView con
-        //        CheckBox checkA = answersGrid.FindRowCellTemplateControl(0, null, "checkA") as CheckBox;
-        //        CheckBox checkB = answersGrid.FindRowCellTemplateControl(0, null, "checkB") as CheckBox;
-        //        CheckBox checkC = answersGrid.FindRowCellTemplateControl(0, null, "checkC") as CheckBox;
-        //        CheckBox checkD = answersGrid.FindRowCellTemplateControl(0, null, "checkD") as CheckBox;
-
-        //        // Tiếp tục thao tác với các CheckBox ở đây
-        //    }
-        //}
-
-
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-
-        }
     }
 }
