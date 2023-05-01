@@ -40,14 +40,21 @@
                 <div style="padding:10px;">
                     <b style="font-size:large; color:darkcyan;"><%#Eval("question")%></b>
                     <br /><br /><hr />
-                    <p>
-                        <dx:ASPxCheckBox ID="checkbox_optA" runat="server" Text='<%# "A. " + Eval("opt_A").ToString() %>'></dx:ASPxCheckBox>
-                        <dx:ASPxCheckBox ID="checkbox_optB" runat="server" Text='<%# "B. " + Eval("opt_B").ToString() %>'></dx:ASPxCheckBox>
-                        <dx:ASPxCheckBox ID="checkbox_optC" runat="server" Text='<%# "C. " + Eval("opt_C").ToString() %>'></dx:ASPxCheckBox>
-                        <dx:ASPxCheckBox ID="checkbox_optD" runat="server" Text='<%# "D. " + Eval("opt_C").ToString() %>'></dx:ASPxCheckBox>
-                    </p>                   
+                    <div style="display: inline-block; width: 50%;">
+                        <p>
+                            <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optA" runat="server" Text='<%# "A. " + Eval("opt_A").ToString() %>'></dx:ASPxCheckBox>
+                            <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optB" runat="server" Text='<%# "B. " + Eval("opt_B").ToString() %>'></dx:ASPxCheckBox>
+                            <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optC" runat="server" Text='<%# "C. " + Eval("opt_C").ToString() %>'></dx:ASPxCheckBox>
+                            <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optD" runat="server" Text='<%# "D. " + Eval("opt_C").ToString() %>'></dx:ASPxCheckBox>
+                        </p>
+                    </div>
+                    <div style="display: inline-block; float: right;">
+                        <br />
+                        <asp:Image ID="img_correct" runat="server" Style="max-width:200px; height:auto" src="\Image\Correct.png" Visible="false"/>
+                        <asp:Image ID="img_wrong" runat="server" Style="max-width:200px; height:auto" src="\Image\Wrong.png" Visible="false"/>
+                    </div>
                 </div>
-                <dx:ASPxButton ID="btn_AnswersSubmit" runat="server" Theme="iOS" Width="100%" Text="Submit" CommandArgument='<%# Container.VisibleIndex + "," + Eval("question_ID") + "," + Eval("quizAns_ID") + "," + Eval("correct_ans")%>' OnClick="btn_AnswersSubmit_Click"></dx:ASPxButton>
+                <dx:ASPxButton ID="btn_AnswersSubmit" runat="server" Theme="iOS" Width="100%" Text="Submit" CommandArgument='<%# Container.VisibleIndex + "," + Eval("question_ID") + "," + Eval("quizAns_ID")%>' OnClick="btn_AnswersSubmit_Click"></dx:ASPxButton>
             </Card>
         </Templates>
 
@@ -57,11 +64,4 @@
             </Card>
         </Styles>
     </dx:ASPxCardView>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-    <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-
-
 </asp:Content>

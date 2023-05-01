@@ -1,9 +1,12 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.SpreadsheetSource.Xls;
 using DevExpress.Web;
+using LangSkillz.App_Start;
 using LangSkillz.App_Start.LangSkillz_DataSetTableAdapters;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -25,7 +28,58 @@ namespace LangSkillz.Students
 
                 vw_MQsTableAdapter mcq = new vw_MQsTableAdapter();
                 ASPxCardView1.DataSource = mcq.Get_by_LessonID(Convert.ToInt32(Session["lesson_ID"]));
-                ASPxCardView1.DataBind(); 
+                ASPxCardView1.DataBind();
+
+                LangSkillz_DataSet.vw_studentResultsDataTable tempTable = new LangSkillz_DataSet.vw_studentResultsDataTable();
+                vw_studentResultsTableAdapter results = new vw_studentResultsTableAdapter();
+                results.Fill(tempTable, Convert.ToInt32(Session["lesson_ID"]), Convert.ToInt32(Session["student_ID"]));
+
+                DataRow[] sortedRows = tempTable.Select("", "VisibleIndex ASC");
+
+                for (int i = 0; i < tempTable.Rows.Count; i++)
+                {
+                    int visibleIndex = Convert.ToInt32(tempTable.Rows[i]["VisibleIndex"]);
+
+                    ASPxCheckBox checkbox_optA = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optA");
+                    ASPxCheckBox checkbox_optB = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optB");
+                    ASPxCheckBox checkbox_optC = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optC");
+                    ASPxCheckBox checkbox_optD = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optD");
+
+                    string ans = tempTable.Rows[i]["studentsAns"].ToString();
+
+                    if (ans != null)
+                    {
+                        ASPxButton Submit = (ASPxButton)ASPxCardView1.FindCardTemplateControl(visibleIndex, "btn_AnswersSubmit");
+                        Submit.Text = "You have already answered this question";
+                        Submit.Enabled = false;
+
+                        checkbox_optA.Enabled = false;
+                        checkbox_optB.Enabled = false;
+                        checkbox_optC.Enabled = false;
+                        checkbox_optD.Enabled = false;
+
+                        CheckAnswerOptions(ans, checkbox_optA, checkbox_optD, checkbox_optC, checkbox_optD);
+
+                        System.Web.UI.WebControls.Image img_correct = (System.Web.UI.WebControls.Image)ASPxCardView1.FindCardTemplateControl(visibleIndex, "img_correct");
+                        System.Web.UI.WebControls.Image img_wrong = (System.Web.UI.WebControls.Image)ASPxCardView1.FindCardTemplateControl(visibleIndex, "img_wrong");
+
+                        string correctAns = tempTable.Rows[i]["correct_ans"].ToString();
+                        CheckWrongAnswerOptions( ans, checkbox_optA, checkbox_optD, checkbox_optC, checkbox_optD);
+                        CheckCorrectAnswerOptions(correctAns, checkbox_optA, checkbox_optD, checkbox_optC, checkbox_optD);
+
+                        if (CompareMCAs(ans, correctAns) == true)
+                        {
+                            img_correct.Visible = true;
+                            img_wrong.Visible = false;
+
+                        }
+                        else
+                        {
+                            img_correct.Visible = false;
+                            img_wrong.Visible = true;
+                        }
+                    }
+                }
             }
         }
 
@@ -42,9 +96,7 @@ namespace LangSkillz.Students
             string visible_Index = cmdArg.Split(',')[0];
             string questionID = cmdArg.Split(',')[1];
             string quizAnsID = cmdArg.Split(',')[2];
-            string correctAns = cmdArg.Split(',')[3];
 
-            ASPxButton btn = (ASPxButton)sender;
             int visibleIndex = Convert.ToInt32(visible_Index);
 
             ASPxCheckBox checkbox_optA = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optA");
@@ -59,41 +111,34 @@ namespace LangSkillz.Students
 
             int cardID = Convert.ToInt32(ASPxCardView1.GetCardValues(visibleIndex, "CardID"));
 
-            string a = "";
+            string studentAns = "";
             if (optA_checked == true)
             {
-                a = a + "A";
+                studentAns = studentAns + "A";
             }
             if (optB_checked == true)
             {
-                a = a + "B";
+                studentAns = studentAns + "B";
             }
             if (optC_checked == true)
             {
-                a = a + "C";
+                studentAns = studentAns + "C";
             }
             if (optD_checked == true)
             {
-                a = a + "D";
+                studentAns = studentAns + "D";
             }
+            
+            tbl_StudentsAnsTableAdapter studentsAns = new tbl_StudentsAnsTableAdapter();
+            studentsAns.Insert(Convert.ToInt32(Session["student_ID"]), Convert.ToInt32(questionID), Convert.ToInt32(quizAnsID),visibleIndex,studentAns);
 
-            Label1.Text = a;
-            Label2.Text = questionID;
-            Label3.Text = quizAnsID;
-            Label4.Text = correctAns;
-            if (CompareMCAs(a, correctAns)==true)
-            {
-                Label5.Text = "Dap an dung";
-            }
-            else 
-            {
-                Label5.Text = "Dap an sai";
+            tbl_LessonsTableAdapter thelesson = new tbl_LessonsTableAdapter();
+            ASPxGridView1.DataSource = thelesson.Get_by_LessonID(Convert.ToInt32(Session["lesson_ID"]));
+            ASPxGridView1.DataBind();
 
-            }
-
-            //tbl_StudentsAnsTableAdapter studentsAns = new tbl_StudentsAnsTableAdapter();
-            //studentsAns.Insert(Convert.ToInt32(Session["student_ID"]), Convert.ToInt32(questionID), Convert.ToInt32(quizAnsID), a);
-
+            vw_MQsTableAdapter mcq = new vw_MQsTableAdapter();
+            ASPxCardView1.DataSource = mcq.Get_by_LessonID(Convert.ToInt32(Session["lesson_ID"]));
+            ASPxCardView1.DataBind();
         }
 
         public bool CompareMCAs(string str1, string str2)
@@ -108,6 +153,63 @@ namespace LangSkillz.Students
                 return true;
 
             return false;
+        }
+
+        private void CheckAnswerOptions(string answer, ASPxCheckBox checkbox_optA, ASPxCheckBox checkbox_optB, ASPxCheckBox checkbox_optC, ASPxCheckBox checkbox_optD)
+        {
+            if (string.IsNullOrEmpty(answer)) return;
+
+            answer = answer.ToLower();
+
+            if (answer.Contains("a"))
+                checkbox_optA.Checked = true;
+
+            if (answer.Contains("b"))
+                checkbox_optB.Checked = true;
+
+            if (answer.Contains("c"))
+                checkbox_optC.Checked = true;
+
+            if (answer.Contains("d"))
+                checkbox_optD.Checked = true;
+        }
+
+        private void CheckCorrectAnswerOptions(string answer, ASPxCheckBox checkbox_optA, ASPxCheckBox checkbox_optB, ASPxCheckBox checkbox_optC, ASPxCheckBox checkbox_optD)
+        {
+            if (string.IsNullOrEmpty(answer)) return;
+
+            answer = answer.ToLower();
+
+            if (answer.Contains("a"))
+                checkbox_optA.ForeColor = Color.Green;
+
+            if (answer.Contains("b"))
+                checkbox_optB.ForeColor = Color.Green;
+
+            if (answer.Contains("c"))
+                checkbox_optC.ForeColor = Color.Green;
+
+            if (answer.Contains("d"))
+                checkbox_optD.ForeColor = Color.Green;
+        }
+
+        private void CheckWrongAnswerOptions(string answer, ASPxCheckBox checkbox_optA, ASPxCheckBox checkbox_optB, ASPxCheckBox checkbox_optC, ASPxCheckBox checkbox_optD)
+        {
+            if (string.IsNullOrEmpty(answer)) return;
+
+            answer = answer.ToLower();
+
+            if (answer.Contains("a"))
+                checkbox_optA.ForeColor = Color.Red;
+
+            if (answer.Contains("b"))
+                checkbox_optB.ForeColor = Color.Red;
+
+            if (answer.Contains("c"))
+                checkbox_optC.ForeColor = Color.Red;
+
+            if (answer.Contains("d"))
+                checkbox_optD.ForeColor = Color.Red;
         }
 
     }

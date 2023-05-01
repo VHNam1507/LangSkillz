@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using LangSkillz.Models;
+using LangSkillz.App_Start.LangSkillz_DataSetTableAdapters;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Web.Security;
 
 namespace LangSkillz.Account
 {
@@ -37,6 +40,19 @@ namespace LangSkillz.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
+            if (Session["usersRole"].ToString() == "Instructors")
+            {
+
+                lbl_fullname.Text = Session["instructor_name"].ToString();
+                lbl_email.Text = Session["instructor_email"].ToString();
+                lbl_role.Text = "Instructors";
+            }
+            else if (Session["usersRole"].ToString() == "Students")
+            {
+                lbl_fullname.Text = Session["student_name"].ToString();
+                lbl_email.Text = Session["student_email"].ToString();
+                lbl_role.Text = "Students";
+            }
         }
 
 

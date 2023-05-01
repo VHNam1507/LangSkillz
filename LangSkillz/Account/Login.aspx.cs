@@ -28,6 +28,9 @@ namespace LangSkillz.Account
                 {
                     tbl_InstructorsTableAdapter instructor = new tbl_InstructorsTableAdapter();
                     Session["instructor_ID"] = instructor.Get_InstructorID(Email.Text);
+                    Session["instructor_name"] = instructor.Get_InstructorName(Convert.ToInt32(Session["instructor_ID"]));
+                    Session["instructor_email"] = Email.Text;
+                    Session["usersRole"] = "Instructors";
 
                     FormsAuthentication.SetAuthCookie(Email.Text, true);
                     Response.Redirect("~/Default.aspx");
@@ -36,6 +39,9 @@ namespace LangSkillz.Account
                 {
                     tbl_StudentsTableAdapter student = new tbl_StudentsTableAdapter();
                     Session["student_ID"] = student.Get_StudentID(Email.Text);
+                    Session["student_name"] = student.Get_StudentName(Convert.ToInt32(Session["student_ID"]));
+                    Session["student_email"] = Email.Text;
+                    Session["usersRole"] = "Students";
 
                     FormsAuthentication.SetAuthCookie(Email.Text, true);
                     Response.Redirect("~/Default.aspx");

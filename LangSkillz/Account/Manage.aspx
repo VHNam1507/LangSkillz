@@ -23,28 +23,22 @@
                 <br />
                 <div class="row">
                   <div class="col-md-4 text-end" style="font-weight:bold">Your fullname:</div>
-                  <div class="col-md-8"><asp:Label ID="lbl_fullname" runat="server" Text="Lmao" /></div>
+                  <div class="col-md-8"><asp:Label ID="lbl_fullname" runat="server" Text="N/A" /></div>
                 </div>
 
                 <br /><br />
                 <div class="row">
                   <div class="col-md-4 text-end" style="font-weight:bold">Your email address:</div>
-                  <div class="col-md-8"><asp:Label ID="lbl_email" runat="server" Text="Lmao" /></div>
+                  <div class="col-md-8"><asp:Label ID="lbl_email" runat="server" Text="N/A" /></div>
                 </div>
                 <br /><br />
                 <div class="row">
                   <div class="col-md-4 text-end" style="font-weight:bold">Your role in LangSkillz:</div>
-                  <div class="col-md-8"><asp:Label ID="lbl_role" runat="server" Text="Lmao" /></div>
+                  <div class="col-md-8"><asp:Label ID="lbl_role" runat="server" Text="N/A" /></div>
                 </div>
                 <br /><br />
                 
-                <dl class="dl-horizontal">
-                    <dt> Change your Password:</dt>
-                    <dd>
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="true" ID="ChangePassword" runat="server" />
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
-                    </dd>
-                </dl>
+           
             </div>
         </div>
     </main>
