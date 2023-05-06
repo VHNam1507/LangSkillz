@@ -58,6 +58,29 @@
             </div>
         </asp:View>
 
+        <%--VIEW 2.1 -> EDIT COURSE VIEW, EDIT COURSE'S TITLE EDIT COURSE'S CONTENT--%>       
+        <asp:View ID="View2_1" runat="server">
+            <h5>Edit Course</h5><br />
+            
+            <div class ="row">
+                <div class="col-md-2" style="padding:5px"> Course's title </div>
+                <div class="col-md-10" style="padding:5px">
+                    <asp:TextBox ID="editCourseTitle_Textbox" CssClass="form-control" runat="server"></asp:TextBox>
+                    <br />
+                </div>
+
+                <div class="col-md-2" style="padding:5px"> Edit Course's content </div>
+                <div class="col-md-10">
+                    <dx:ASPxHtmlEditor ID="edithtmlCourseContent" runat="server"></dx:ASPxHtmlEditor>
+                </div>
+
+                <div class="col-md-2" style="padding:5px"></div>
+                <div class="col-md-10"><br />
+                    <asp:Button ID="btn_editSaveCourse" OnClick="btn_editSaveCourse_Click" runat="server" CssClass="btn btn-lg btn-info" Text="Save Course and Countinue" />
+                </div>
+            </div>
+        </asp:View>
+
          <%--VIEW 3 -> A BUTTON "ADD NEW LESSON" + SHOW A LIST OF LESSON BY ASPxGridView that have Lesson Title and a button called "add Quiz"--%>       
         <asp:View ID="View3" runat="server">
             <h5>
@@ -101,6 +124,27 @@
                 <div class="col-md-2" style="padding:5px"></div>
                 <div class="col-md-10"><br />
                     <asp:Button ID="btn_SaveLesson" OnClick="btn_SaveLesson_Click" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
+                </div>
+            </div>
+        </asp:View>
+
+        <%--VIEW 4.1 -> EDIT LESSON VIEW, EDIT LESSON'S TITLE EDIT LESSON'S CONTENT--%>  
+        <asp:View ID="View4_1" runat="server">
+            <h5> EDIT Lessons</h5><br />
+            
+            <div class ="row">
+                <div class="col-md-2" style="padding:5px"> Lesson's title </div>
+                <div class="col-md-10" style="padding:5px">
+                    <asp:TextBox ID="editLessonTitle_Textbox" CssClass="form-control" runat="server"></asp:TextBox>
+                    <br />
+                </div>
+                <div class="col-md-2" style="padding:5px"> Lesson's content </div>
+                <div class="col-md-10">
+                    <dx:ASPxHtmlEditor ID="edithtmlLessonContent" runat="server"></dx:ASPxHtmlEditor>
+                </div>
+                <div class="col-md-2" style="padding:5px"></div>
+                <div class="col-md-10"><br />
+                    <asp:Button ID="btn_editSaveLesson" OnClick="btn_editSaveLesson_Click" runat="server" CssClass="btn btn-lg btn-info" Text="Save and Countinue" />
                 </div>
             </div>
         </asp:View>

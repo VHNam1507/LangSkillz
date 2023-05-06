@@ -96,6 +96,42 @@ namespace LangSkillz.Instructors
         protected global::System.Web.UI.WebControls.Button btn_SaveCourse;
 
         /// <summary>
+        /// View2_1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View2_1;
+
+        /// <summary>
+        /// editCourseTitle_Textbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox editCourseTitle_Textbox;
+
+        /// <summary>
+        /// edithtmlCourseContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxHtmlEditor.ASPxHtmlEditor edithtmlCourseContent;
+
+        /// <summary>
+        /// btn_editSaveCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_editSaveCourse;
+
+        /// <summary>
         /// View3 control.
         /// </summary>
         /// <remarks>
@@ -166,6 +202,42 @@ namespace LangSkillz.Instructors
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_SaveLesson;
+
+        /// <summary>
+        /// View4_1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View4_1;
+
+        /// <summary>
+        /// editLessonTitle_Textbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox editLessonTitle_Textbox;
+
+        /// <summary>
+        /// edithtmlLessonContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxHtmlEditor.ASPxHtmlEditor edithtmlLessonContent;
+
+        /// <summary>
+        /// btn_editSaveLesson control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_editSaveLesson;
 
         /// <summary>
         /// View5 control.

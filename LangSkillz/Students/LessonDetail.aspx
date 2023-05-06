@@ -45,7 +45,7 @@
                             <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optA" runat="server" Text='<%# "A. " + Eval("opt_A").ToString() %>'></dx:ASPxCheckBox>
                             <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optB" runat="server" Text='<%# "B. " + Eval("opt_B").ToString() %>'></dx:ASPxCheckBox>
                             <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optC" runat="server" Text='<%# "C. " + Eval("opt_C").ToString() %>'></dx:ASPxCheckBox>
-                            <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optD" runat="server" Text='<%# "D. " + Eval("opt_C").ToString() %>'></dx:ASPxCheckBox>
+                            <dx:ASPxCheckBox Style="font-size:17px" ID="checkbox_optD" runat="server" Text='<%# "D. " + Eval("opt_D").ToString() %>'></dx:ASPxCheckBox>
                         </p>
                     </div>
                     <div style="display: inline-block; float: right;">
