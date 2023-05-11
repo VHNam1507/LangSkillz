@@ -28,6 +28,7 @@
     <h3>Attempt Question</h3> <br />
     <dx:ASPxCardView ID="ASPxCardView1" width="100%" runat="server" ItemSpacing="10" Theme="Aqua" AutoGenerateColumns="False" 
         EditFormLayoutProperties-ColumnCount="1" CardLayoutProperties-ColumnCount="1" SettingsPager-SettingsTableLayout-ColumnCount="1" >
+        <SettingsPager Mode="ShowAllRecords" Summary-Text="Showing all {0} items"></SettingsPager>
         <Columns>
             <dx:CardViewTextColumn FieldName="question"></dx:CardViewTextColumn>
             <dx:CardViewTextColumn FieldName="opt_A"></dx:CardViewTextColumn>
@@ -57,7 +58,7 @@
                 <dx:ASPxButton ID="btn_AnswersSubmit" runat="server" Theme="iOS" Width="100%" Text="Submit" CommandArgument='<%# Container.VisibleIndex + "," + Eval("question_ID") + "," + Eval("quizAns_ID")%>' OnClick="btn_AnswersSubmit_Click"></dx:ASPxButton>
             </Card>
         </Templates>
-
+        
         <Styles>
             <Card Width="100%">
                 <Border BorderColor="#00CC99" BorderStyle="Dashed" />

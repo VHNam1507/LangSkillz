@@ -35,7 +35,7 @@ namespace LangSkillz.Students
 
                 DataRow[] sortedRows = tempTable.Select("", "VisibleIndex ASC");
 
-                for (int i = 0; i < tempTable.Rows.Count; i++)
+                for (int i = 0; i < sortedRows.Length; i++)
                 {
                     int visibleIndex = Convert.ToInt32(tempTable.Rows[i]["VisibleIndex"]);
 
@@ -44,13 +44,49 @@ namespace LangSkillz.Students
                     ASPxCheckBox checkbox_optC = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optC");
                     ASPxCheckBox checkbox_optD = (ASPxCheckBox)ASPxCardView1.FindCardTemplateControl(visibleIndex, "checkbox_optD");
 
-
                     string studentAns = tempTable.Rows[i]["studentsAns"].ToString();
                     string correctAns = tempTable.Rows[i]["correct_ans"].ToString();
-                    CheckAnswerOptions(studentAns, checkbox_optA, checkbox_optD, checkbox_optC, checkbox_optD);
-
+                    
                     if (studentAns != null)
                     {
+                        studentAns = studentAns.ToLower();
+                        if (studentAns.Contains("a"))
+                        {
+                            SetAnswerOption(checkbox_optA, Color.Red, true);
+                        }
+
+                        if (studentAns.Contains("b"))
+                        {
+                            SetAnswerOption(checkbox_optB, Color.Red, true);
+                        }
+
+                        if (studentAns.Contains("c"))
+                        {
+                            SetAnswerOption(checkbox_optC, Color.Red, true);
+                        }
+
+                        if (studentAns.Contains("d"))
+                        {
+                            SetAnswerOption(checkbox_optD, Color.Red, true);
+                        }
+
+                        correctAns = correctAns.ToLower();
+                        Dictionary<char, ASPxCheckBox> checkBoxMap = new Dictionary<char, ASPxCheckBox>
+                        {
+                            {'a', checkbox_optA},
+                            {'b', checkbox_optB},
+                            {'c', checkbox_optC},
+                            {'d', checkbox_optD}
+                        };
+
+                        foreach (char c in correctAns)
+                        {
+                            if (checkBoxMap.ContainsKey(c))
+                            {
+                                checkBoxMap[c].ForeColor = Color.Green;
+                            }
+                        }
+
                         ASPxButton Submit = (ASPxButton)ASPxCardView1.FindCardTemplateControl(visibleIndex, "btn_AnswersSubmit");
                         Submit.Text = "You have already answered this question";
                         Submit.Enabled = false;
@@ -73,8 +109,6 @@ namespace LangSkillz.Students
                             img_correct.Visible = false;
                             img_wrong.Visible = true;
                         }
-
-                        CheckCorrectAnswerOptions(correctAns, checkbox_optA, checkbox_optD, checkbox_optC, checkbox_optD);
                     }
                 }
             }
@@ -141,59 +175,13 @@ namespace LangSkillz.Students
                 return false;
             if (str1.Intersect(str2).Count() == str1.Length)
                 return true;
-
             return false;
         }
 
-        private void CheckAnswerOptions(string answer, ASPxCheckBox checkbox_optA, ASPxCheckBox checkbox_optB, ASPxCheckBox checkbox_optC, ASPxCheckBox checkbox_optD)
+        private void SetAnswerOption(ASPxCheckBox checkbox, Color color, bool isChecked)
         {
-            if (string.IsNullOrEmpty(answer)) return;
-
-            answer = answer.ToLower();
-
-            if (answer.Contains("a"))
-            {
-                checkbox_optA.Checked = true;
-                checkbox_optA.ForeColor = Color.Red;
-            }
-
-            if (answer.Contains("b"))
-            {
-                checkbox_optB.Checked = true;
-                checkbox_optB.ForeColor = Color.Red;
-            }
-
-            if (answer.Contains("c"))
-            {
-                checkbox_optC.Checked = true;
-                checkbox_optC.ForeColor = Color.Red;
-            }
-
-            if (answer.Contains("d"))
-            {
-                checkbox_optD.Checked = true;
-                checkbox_optD.ForeColor = Color.Red;
-            }
+            checkbox.Checked = isChecked;
+            checkbox.ForeColor = color;
         }
-
-        private void CheckCorrectAnswerOptions(string correct_ans, ASPxCheckBox checkbox_optA, ASPxCheckBox checkbox_optB, ASPxCheckBox checkbox_optC, ASPxCheckBox checkbox_optD)
-        {
-            if (string.IsNullOrEmpty(correct_ans)) return;
-
-            correct_ans = correct_ans.ToLower();
-
-            if (correct_ans.Contains("a"))
-                checkbox_optA.ForeColor = Color.Green;
-
-            if (correct_ans.Contains("b"))
-                checkbox_optB.ForeColor = Color.Green;
-
-            if (correct_ans.Contains("c"))
-                checkbox_optC.ForeColor = Color.Green;
-
-            if (correct_ans.Contains("d"))
-                checkbox_optD.ForeColor = Color.Green;
-        }
-
     }
 }
